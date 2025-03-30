@@ -136,3 +136,30 @@ This function now has two operations. We are going to simplify this to O(1).
 O(1) is often referred to as constant time. This is because the number of operations is constant. It doesn't matter how big `n` is, the function will always run the same number of times. The number of operations does not change as the `n` changes.
 
 On a graph, O(1) is a straight line. O(1) is the most efficient time complexity.
+
+### Big-O: O(log n)
+
+Example: Let's say we have a **SORTED** array of numbers. We want to find a number in the array.
+
+`[1, 2, 3, 4, 5, 6, 7, 8]`
+
+Case 1: Let's say we are looking for the number `1`. We would divide the array in half. We ask ourselves if the number `1` is in the first or second half. We know that it's not in the second half. So we can ignore the second half. It may not seem like eliminating half the array is a big deal here, but as the array gets bigger, it becomes a big deal.
+
+Now, we divide the remaining half in half again. We ask ourselves if the number `1` is in the first or second half. We know that it's not in the second half. So we can ignore the second half. We keep doing this until we find the number `1`.
+
+This is a technique called **divide and conquer**.
+
+We count the number of steps/times we have to divide the array in half, which were 3 steps.
+Remember, we have 8 items in the array, so we can represent this as 2^3 = 8. In a logarithm, we can say that log base 2 of 8 is 3. So we can say that the time complexity is O(log n).
+
+In simpler words, how many times do we have to divide the array in half until we get to the number we are looking for?
+
+Let's say we have 1,000,000 items in the array. Compared to the O(n) time complexity, which would take 1,000,000 steps, the O(log n) time complexity would only take 20 steps. This is a huge difference.
+
+A quick look at O(n \* log n) time complexity:
+
+O(n \* log n) is a combination of O(n) and O(log n). This is often seen in sorting algorithms like merge sort and quicksort.
+
+This is the most efficient time complexity that we can get for sorting algorithms if we are not sorting numbers.
+
+We will see this in the sorting algorithms section.
