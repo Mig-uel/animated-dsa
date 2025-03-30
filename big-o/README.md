@@ -291,3 +291,17 @@ If we search by value, we have to loop through the entire array. This means that
 If we search by index, we can directly go that place in memory. This means that the time complexity is O(1).
 
 If you need to access things by index, arrays are a great data structure. If you are going to be adding and removing a lot of items, arrays are not a great data structure. Either way, you are making your decisions based on the time complexity.
+
+# Recap
+
+There are different words or phrases that we use to describe the time complexity of an algorithm. Here are some of the most common ones:
+
+- O(n^2): is a loop inside a loop. This is the slowest time complexity. Also called quadratic time complexity.
+
+- O(n): is proportional to the input size. This is a linear time complexity.
+
+- O(log n): is logarithmic time complexity. This is when we are dividing the input size in half. We will hear the term "divide and conquer" a lot. This is the fastest time complexity.
+
+- O(1): is constant time complexity. This is when the number of operations does not change as the input size changes. This is the most efficient time complexity.
+
+[Big-O Cheat Sheet](https://www.bigocheatsheet.com/) is a great resource to have. It has a lot of information about Big-O notation and time complexity. It also has a lot of examples and explanations.
