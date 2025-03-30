@@ -37,3 +37,19 @@ If we are looking for the number `3`, this would be the average case scenario. T
 If we are looking for the number `5`, this would be the worst case scenario. The loop would have to run five times. (This would be represented as O(n))
 
 When we measure Big-O, we are always measuring the worst case scenario. This is the slowest an algorithm can run.
+
+## Big-O: O(n)
+
+```js
+function logItems(n) {
+  for (let i = 0; i < n; i++) {
+    console.log(i)
+  }
+}
+```
+
+This function has a time complexity of O(n). This is because the function will run `n` times. The more items we have, the more times the function will run.
+
+In other words, the worse case scenario is that the function will run `n` times. This is the slowest an algorithm can run.
+
+O(n) is always going to be a straight line. The number of operations are going to be proportional to whatever `n` is.
