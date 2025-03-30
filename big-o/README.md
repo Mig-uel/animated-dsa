@@ -53,3 +53,20 @@ This function has a time complexity of O(n). This is because the function will r
 In other words, the worse case scenario is that the function will run `n` times. This is the slowest an algorithm can run.
 
 O(n) is always going to be a straight line. The number of operations are going to be proportional to whatever `n` is.
+
+## Big-O: Drop Constants
+
+Big-O has several ways in which we simplify the notation making things easier. The first one is dropping constants.
+
+```js
+function logItems(n) {
+  for (let i = 0; i < n; i++) {
+    console.log(i)
+  }
+}
+```
+
+Our code ran `n` + `n` times. It would make sense to say that the time complexity is O(2n).
+But this is where the simplification comes in. We drop the constants. So O(2n) becomes O(n).
+
+This is because the constants don't matter. The number of operations is still going to be proportional to `n`. So we can drop the constants and just say O(n).
