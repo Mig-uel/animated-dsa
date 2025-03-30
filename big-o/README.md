@@ -88,3 +88,27 @@ This function has a time complexity of O(n^2). This is because the function will
 In other words, the worse case scenario is that the function will run `n` \* `n` times. This is the slowest an algorithm can run.
 
 O(n^2) is always going to be a parabola. The number of operations are going to be proportional to whatever `n` is squared.
+
+## Big-O: Drop Non-Dominant Terms
+
+```js
+function logItems(n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      console.log(i, j)
+    }
+  }
+
+  for (let k = 0; k < n; k++) {
+    console.log(k)
+  }
+}
+```
+
+The first loop ran O(n^2) times and the second loop ran O(n) times. So we would say that the time complexity is O(n^2 + n).
+
+Let's say `n` is 1000. The first loop would run 1,000,000 times and the second loop would run 1000 times. The first loop is going to dominate the second loop. So we can drop the non-dominant term.
+
+This is because the first loop is going to run a lot more times than the second loop. So we can drop the non-dominant term and just say O(n^2).
+
+So O(n^2 + n) becomes O(n^2).
