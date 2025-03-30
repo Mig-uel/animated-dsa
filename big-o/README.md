@@ -197,3 +197,97 @@ function logItems(a, b) {
 ```
 
 This function has a time complexity of O(a \* b). This is because the first loop runs `a` times and the second loop runs `b` times. So we would say that the time complexity is O(a \* b).
+
+## Big-O: Arrays
+
+`myArray` is an array of numbers.
+
+|           |     |     |     |     |
+| --------- | --- | --- | --- | --- |
+| **Value** | 11  | 3   | 23  | 7   |
+| **Index** | 0   | 1   | 2   | 3   |
+
+We want to `push` a number to the end of the array.
+
+```js
+myArray.push(17)
+```
+
+|           |     |     |     |     |     |
+| --------- | --- | --- | --- | --- | --- |
+| **Value** | 11  | 3   | 23  | 7   | 17  |
+| **Index** | 0   | 1   | 2   | 3   | 4   |
+
+When pushing to the end of the array, we are not re-indexing the array. We are just adding to the end of the array.
+
+What if we `pop` a number from the end of the array?
+
+```js
+myArray.pop()
+```
+
+|           |     |     |     |     |
+| --------- | --- | --- | --- | --- |
+| **Value** | 11  | 3   | 23  | 7   |
+| **Index** | 0   | 1   | 2   | 3   |
+
+When popping from the end of the array, we are not re-indexing the array. We are just removing from the end of the array.
+
+Because we are not re-indexing the array when we `push` or `pop`, the time complexity is O(1) for both operations.
+
+What if we want to `shift` a number from the beginning of the array?
+
+```js
+myArray.shift()
+```
+
+|           |     |     |     |
+| --------- | --- | --- | --- |
+| **Value** | 3   | 23  | 7   |
+| **Index** | 0   | 1   | 2   |
+
+When we shift, the problem we have is that the first item in the array after the shift is still at index 0. We have to re-index the array. This means that we have to loop through the entire array and re-index it.
+
+What if we want to `unshift` a number to the beginning of the array?
+
+```js
+myArray.unshift(17)
+```
+
+|           |     |     |     |     |
+| --------- | --- | --- | --- | --- |
+| **Value** | 17  | 3   | 23  | 7   |
+| **Index** | 0   | 1   | 2   | 3   |
+
+When we unshift, the problem we have is that the item before the unshift is still at index 0. We have to re-index the array. This means that we have to loop through the entire array and re-index it.
+
+This is not a big deal if we have a small array. But if we have a large array, this can be a big deal.
+
+The time complexity for both `shift` and `unshift` is O(n). This is because we have to loop through the entire array and re-index it.
+
+Now, what if we want to add something to the middle of the array?
+
+```js
+myArray.splice(1, 0, 'Hi')
+```
+
+- `1` is the index we want to add the item at
+- `0` is the number of items we want to remove from the array
+- `'Hi'` is the item we want to add to the array
+
+|           |     |      |     |     |     |
+| --------- | --- | ---- | --- | --- | --- |
+| **Value** | 11  | 'Hi' | 3   | 23  | 7   |
+| **Index** | 0   | 1    | 2   | 3   | 4   |
+
+When we splice, the problem we have is that the item before the splice is still at the old index. We have to re-index the array. This means that we have to loop through the entire array and re-index it.
+
+It doesn't matter if we are adding or removing items somewhere from the array. The time complexity is O(n). This is because we have to loop through the entire array and re-index it.
+
+What if we want to find an item in the array?
+
+If we search by value, we have to loop through the entire array. This means that the time complexity is O(n).
+
+If we search by index, we can directly go that place in memory. This means that the time complexity is O(1).
+
+If you need to access things by index, arrays are a great data structure. If you are going to be adding and removing a lot of items, arrays are not a great data structure. Either way, you are making your decisions based on the time complexity.
