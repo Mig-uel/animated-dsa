@@ -70,3 +70,21 @@ Our code ran `n` + `n` times. It would make sense to say that the time complexit
 But this is where the simplification comes in. We drop the constants. So O(2n) becomes O(n).
 
 This is because the constants don't matter. The number of operations is still going to be proportional to `n`. So we can drop the constants and just say O(n).
+
+## Big-O: O(n^2)
+
+```js
+function logItems(n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      console.log(i, j)
+    }
+  }
+}
+```
+
+This function has a time complexity of O(n^2). This is because the function will run `n` times for each `n` times. The more items we have, the more times the function will run.
+
+In other words, the worse case scenario is that the function will run `n` \* `n` times. This is the slowest an algorithm can run.
+
+O(n^2) is always going to be a parabola. The number of operations are going to be proportional to whatever `n` is squared.
