@@ -163,3 +163,37 @@ O(n \* log n) is a combination of O(n) and O(log n). This is often seen in sorti
 This is the most efficient time complexity that we can get for sorting algorithms if we are not sorting numbers.
 
 We will see this in the sorting algorithms section.
+
+# Big-O: Different Terms for Inputs
+
+Different terms for inputs is a very popular question in interviews. This is when we have two inputs and we want to know how to represent the time complexity.
+
+```js
+function logItems(a, b) {
+  for (let i = 0; i < a; i++) {
+    console.log(i)
+  }
+
+  for (let j = 0; j < b; j++) {
+    console.log(j)
+  }
+}
+```
+
+With what we know so far, we would say that the time complexity is O(n). But, this is not the case. We have two different inputs. `a` and `b` which might be different. We can't just say O(n). We can't say that `a` is equal to `n` and that `b` is equal to `n`. What if `a` is 1,000 and `b` is 1? We can't say that `a` is equal to `n` and that `b` is equal to `n`. We have to represent the time complexity for both inputs.
+
+The first loop runs `a` times and the second loop runs `b` times. So we would say that the time complexity is O(a + b).
+
+Similarly, if we have two nested loops, we would say that the time complexity is O(a \* b).
+
+```js
+function logItems(a, b) {
+  for (let i = 0; i < a; i++) {
+    for (let j = 0; j < b; j++) {
+      console.log(i, j)
+    }
+  }
+}
+```
+
+This function has a time complexity of O(a \* b). This is because the first loop runs `a` times and the second loop runs `b` times. So we would say that the time complexity is O(a \* b).
