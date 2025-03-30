@@ -112,3 +112,27 @@ Let's say `n` is 1000. The first loop would run 1,000,000 times and the second l
 This is because the first loop is going to run a lot more times than the second loop. So we can drop the non-dominant term and just say O(n^2).
 
 So O(n^2 + n) becomes O(n^2).
+
+## Big-O: O(1)
+
+```js
+function addItems(n) {
+  return n + n
+}
+```
+
+This function has only one operation. It doesn't matter if `n` is 1 or 1,000,000. The function will always run the same number of times. So we would say that the time complexity is O(1).
+
+What if we add another operation?
+
+```js
+function addItems(n) {
+  return n + n + n
+}
+```
+
+This function now has two operations. We are going to simplify this to O(1).
+
+O(1) is often referred to as constant time. This is because the number of operations is constant. It doesn't matter how big `n` is, the function will always run the same number of times. The number of operations does not change as the `n` changes.
+
+On a graph, O(1) is a straight line. O(1) is the most efficient time complexity.
