@@ -228,3 +228,80 @@ const tail = {
 ```
 
 This is what a linked list looks like under the hood. Each node is an object that has two properties: `value` and `next`. The `next` property points to the next node in the linked list. The `head` variable points to the first node in the linked list and the `tail` variable points to the last node in the linked list.
+
+## Linked List: Constructor
+
+```javascript
+class LinkedList {
+  // creates a new node
+  constructor(value) {}
+
+  // creates a new node and adds it to the end of the linked list
+  push(value) {}
+
+  // creates a new node and adds it to the front of the linked list
+  unshift(value) {}
+
+  // creates a new node and add it to whatever index we want
+  insert(index, value) {}
+}
+```
+
+The `constructor` method has a couple of things in common with the other methods that we are going to build.
+
+- They each get passed a `value` parameter.
+- They each create a new node.
+
+We can see that all of the methods are going to create a new node. So, we can create another class `Node` that will create a new node. This will help us keep our code DRY (Don't Repeat Yourself).
+
+Reminder: when we are creating a `node`, we are creating an object that has two properties: `value` and `next`.
+
+```javascript
+class Node {
+  constructor(value) {
+    this.value = value
+    this.next = null
+  }
+}
+```
+
+We pass the `constructor` a `value` parameter and set the `value` property to the value that we passed it. We also set the `next` property to `null` because we don't want to point to anything yet.
+
+We can use this `Node` class like so:
+
+```javascript
+const node = new Node(4)
+console.log(node) // { value: 4, next: null }
+```
+
+Now, going back to the `LinkedList` class and focusing on the `constructor` method:
+
+```javascript
+class LinkedList {
+  // creates a new node
+  constructor(value) {
+    // create a new node
+    const node = new Node(value)
+
+    // set the head to the new node
+    this.head = node
+
+    // set the tail to the new node
+    this.tail = node
+
+    // keep track of the length of the linked list
+    this.length = 1
+  }
+}
+```
+
+The `LinkedList` constructor method creates a new node and sets the `head` and `tail` properties to the new node. It also keeps track of the length of the linked list by setting the `length` property to `1`. This is because we have just created a new node and added it to the linked list.
+
+Now with all the pieces in place, we can create a new linked list like so:
+
+```javascript
+const linkedList = new LinkedList(4)
+console.log(linkedList) // { head: { value: 4, next: null }, tail: { value: 4, next: null }, length: 1 }
+```
+
+This creates a new linked list with one node that has a value of `4`. The `head` and `tail` properties point to the same node and the `length` property is set to `1`.
