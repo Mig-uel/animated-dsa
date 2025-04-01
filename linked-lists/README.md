@@ -124,3 +124,107 @@ Whether we are finding an item by its value or by its index, we have to traverse
 | Delete          | O(n)  | O(n)        |
 | Lookup by index | O(1)  | O(n)        |
 | Lookup by value | O(n)  | O(n)        |
+
+## Linked List: Under the Hood
+
+```mermaid
+graph LR;
+    id1([11]) --> id([3]);
+    id([3]) --> id2([23]);
+    id2([23]) --> id3([7]);
+    id3([7]) --> id4([NULL]);
+```
+
+```mermaid
+graph LR;
+    id1([4]) --> id([null]);
+```
+
+What is a linked list really made of? Let's say we are trying to add `4` to the linked list.What does it mean when we say the `7` node points to the `4` node? And, when we say that `tail` points to the `4` node, what's really going on?
+
+In order to understand linked lists, we have to know what is a `node` made up of. A `node` is made up of two parts: a value and a pointer. The value is the data that we want to store in the linked list and the pointer is the address of the next `node` in the linked list.
+
+The `node` is actually an object that has two properties: `value` and `next`.
+
+For example, the `4` node would look like this:
+
+```javascript
+{
+  value: 4,
+  next: null,
+}
+```
+
+and the `7` node would look like this:
+
+```javascript
+{
+  value: 7,
+  next: null,
+}
+```
+
+How do we the `7` node point to the other node? We can do it by setting the `next` property of the `7` node to the address of the `4` node. This is how we can have the `7` node point to the `4` node.
+
+```javascript
+{
+  value: 7,
+  next: {
+    value: 4,
+    next: null,
+  },
+}
+```
+
+This is the same for the other nodes in the linked list. The whole linked list would look like this:
+
+```javascript
+{
+  value: 11,
+  next: {
+    value: 3,
+    next: {
+      value: 23,
+      next: {
+        value: 7,
+        next: {
+          value: 4,
+          next: null,
+        },
+      },
+    },
+  },
+}
+```
+
+The `head` variable would point to the first node in the linked list and the `tail` variable would point to the last node in the linked list.
+
+```javascript
+ {
+  head: {
+  value: 11,
+    next: {
+      value: 3,
+      next: {
+        value: 23,
+        next: {
+          value: 7,
+          next: {
+            value: 4,
+            next: null,
+          },
+        },
+      },
+    },
+  }
+}
+```
+
+```javascript
+const tail = {
+  value: 4,
+  next: null,
+}
+```
+
+This is what a linked list looks like under the hood. Each node is an object that has two properties: `value` and `next`. The `next` property points to the next node in the linked list. The `head` variable points to the first node in the linked list and the `tail` variable points to the last node in the linked list.
