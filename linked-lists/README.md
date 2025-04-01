@@ -305,3 +305,33 @@ console.log(linkedList) // { head: { value: 4, next: null }, tail: { value: 4, n
 ```
 
 This creates a new linked list with one node that has a value of `4`. The `head` and `tail` properties point to the same node and the `length` property is set to `1`.
+
+## Linked List: Push
+
+```javascript
+push(value) {
+  // create a new node with the value passed to the method
+  const node = new Node(value)
+
+  // step 1: check if the linked list is empty
+  if (!this.head) {
+    // if this.head is null (the linked list is empty)
+    this.head = node // set the head to the new node
+    this.tail = node // set the tail to the new node
+  } else {
+    // if this.head is not null (the linked list is not empty)
+    this.tail.next = node // set the tail's next property to the new node
+    this.tail = node // set the tail to the new node
+  }
+
+  this.length++ // increment the length of the linked list
+  return this // return the linked list
+}
+```
+
+The `push` method creates a new node with the value passed to the method. It then checks if the linked list is empty by checking if the `head` property is `null`.
+
+- If it is, it sets the `head` and `tail` properties to the new node.
+- If it is not, it sets the `tail.next` property to the new node and sets the `tail` property to the new node.
+
+Finally, it increments the length of the linked list and returns the linked list.
