@@ -335,3 +335,16 @@ The `push` method creates a new node with the value passed to the method. It the
 - If it is not, it sets the `tail.next` property to the new node and sets the `tail` property to the new node.
 
 Finally, it increments the length of the linked list and returns the linked list.
+
+## Linked List: Pop
+
+We are only going to go through the logic of the `pop` method. We will go through the code in the next section.
+
+With the `pop` method, we remove the last node in the linked list and move the `tail` pointer to the second to last node in the linked list. Finally, we return the removed node.
+
+We do have a couple of edge cases to consider:
+
+- If the linked list is empty, we want to return `undefined`.
+- If the linked list has only one node, we want to set the `head` and `tail` properties to `null` and return the removed node.
+
+To implement this, we will create two variables: `prev` and `temp`. The `prev` variable will point to the second to last node in the linked list and the `temp` variable will point to the last node in the linked list. We will then set the `prev.next` property to `null` and set the `tail` property to `prev`. Finally, we will return the removed node.
