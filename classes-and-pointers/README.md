@@ -43,3 +43,29 @@ class Cookie {
 The `getColor` method returns the color of the cookie. The `setColor` method sets the color of the cookie to a new value.
 
 We will be using Classes to create data structures. A data structure is a way of organizing and storing data so that it can be accessed and modified efficiently. Data structures are used to store collections of data, such as lists, stacks, queues, trees, and graphs.
+
+## Pointers
+
+In JavaScript, we don't have pointers like in C or C++. However, we can use references to objects. When we create an object, we are creating a reference to that object. When we assign that object to a variable, we are creating a reference to that object.
+
+```js
+let cookie1 = new Cookie('red')
+let cookie2 = cookie1
+```
+
+In this example, `cookie1` and `cookie2` are both references to the same object. If we change the color of `cookie1`, `cookie2` will also change.
+
+```js
+cookie1.setColor('blue')
+console.log(cookie2.getColor()) // blue
+```
+
+This is because `cookie1` and `cookie2` are both references to the same object. If we want to create a new object, we need to use the `new` keyword again.
+
+```js
+let cookie3 = new Cookie('green')
+console.log(cookie1.getColor()) // blue
+console.log(cookie3.getColor()) // green
+```
+
+In this example, `cookie1` and `cookie3` are two different objects. Changing the color of one does not affect the other.
