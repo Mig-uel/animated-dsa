@@ -348,3 +348,32 @@ We do have a couple of edge cases to consider:
 - If the linked list has only one node, we want to set the `head` and `tail` properties to `null` and return the removed node.
 
 To implement this, we will create two variables: `prev` and `temp`. The `prev` variable will point to the second to last node in the linked list and the `temp` variable will point to the last node in the linked list. We will then set the `prev.next` property to `null` and set the `tail` property to `prev`. Finally, we will return the removed node.
+
+## Linked List: Pop (Code)
+
+```javascript
+pop() {
+  let temp = this.head // create a temp variable to point to the head of the linked list
+  let prev = this.head // create a prev variable to point to the second to last node in the linked list
+
+
+  if (!this.head) return undefined // if the linked list is empty, return undefined
+
+  while(temp.next) {
+    pre = temp // set prev to temp
+    temp = temp.next // set temp to the next node in the linked list
+  }
+
+  this.tail = prev // set the tail to the second to last node in the linked list
+  this.tail.next = null // set the tail's next property to null
+
+  this.length-- // decrement the length of the linked list
+
+  if (this.length === 0) {
+    this.head = null // if the linked list is empty, set the head to null
+    this.tail = null // if the linked list is empty, set the tail to null
+  }
+
+  return temp // return the removed node
+}
+```
