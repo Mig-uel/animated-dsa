@@ -479,3 +479,27 @@ Explanation:
 - We loop through the linked list until we reach the index passed to the method.
 - We set `temp` to the next node in the linked list.
 - Finally, we return the `temp` node.
+
+## Linked List: Set
+
+Set, similar to get, is used to set a node at a specific index in the linked list. We want to set the value of the node at the index passed to the method.
+We also want to check if the index is valid. If it is not, we want to return `undefined`.
+
+```javascript
+set(index, value) {
+  let node = this.get(index) // get the node at the index passed to the method
+
+  if (!node) return false // if the node is undefined, return false
+
+  node.value = value // set the node's value to the value passed to the method
+
+  return true // return true if the node was set successfully
+}
+```
+
+Explanation:
+
+- We get the node at the index passed to the method using the `get` method.
+- We check if the node is `undefined`. If it is, we return `false`.
+- We set the node's value to the value passed to the method.
+- Finally, we return `true` if the node was set successfully.
