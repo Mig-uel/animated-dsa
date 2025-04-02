@@ -407,3 +407,41 @@ Explanation:
 - If the linked list is empty, we set the `head` and `tail` properties to the new `node`.
 - If the linked list is not empty, we set the new `node`'s `next` property to the current `head` and set the `head` to the new `node`.
 - Finally, we increment the length of the linked list and return the linked list.
+
+## Linked List: Shift
+
+Shift is the opposite of unshift. It removes the first `node` in the linked list and returns it. We also want to decrement the length of the linked list.
+
+There are a couple of edge cases to consider:
+
+- If the linked list is empty, we want to return `undefined`.
+- If the linked list has only one node, we want to set the `head` and `tail` properties to `null` and return the removed node.
+
+```javascript
+shift() {
+  if (!this.head) return undefined // if the linked list is empty, return undefined
+
+  let temp = this.head // create a temp variable to point to the head of the linked list
+
+  if (!temp.next) {
+    // if the linked list has only one node
+    this.head = null // if the linked list has only one node, set the head to null
+    this.tail = null // if the linked list has only one node, set the tail to null
+  } else {
+    this.head = this.head.next // set the head to the next node in the linked list
+    temp.next = null // set the temp's next property to null
+  }
+
+  this.length-- // decrement the length of the linked list
+  return temp // return the removed node
+}
+```
+
+Explanation:
+
+- We check if the linked list is empty. If it is, we return `undefined`.
+- We create a `temp` variable to point to the head of the linked list.
+- If the linked list has only one node, we set the `head` and `tail` properties to `null`.
+- If the linked list has more than one node, we set the `head` to the next node in the linked list.
+- We set the `temp`'s `next` property to `null` to remove the reference to the next node.
+- Finally, we decrement the length of the linked list and return the removed node.
