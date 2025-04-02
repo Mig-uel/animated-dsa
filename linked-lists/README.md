@@ -503,3 +503,39 @@ Explanation:
 - We check if the node is `undefined`. If it is, we return `false`.
 - We set the node's value to the value passed to the method.
 - Finally, we return `true` if the node was set successfully.
+
+## Linked List: Insert
+
+Insert is used to insert a node at a specific index in the linked list. We want to insert the node at the index passed to the method.
+We also want to check if the index is valid. If it is not, we want to return `undefined`.
+
+```javascript
+insert (index, value) {
+  if (index < 0 || index > this.length) return false // check if the index is valid
+
+  if (index === 0) return this.unshift(value) // if the index is 0, call the unshift method
+  if (index === this.length) return this.push(value) // if the index is the last index, call the push method
+
+  const node = new Node(value) // create a new node with the value passed to the method
+  const prev = this.get(index - 1) // get the node at the index - 1
+
+  node.next = prev.next // set the new node's next property to the prev node's next property
+  prev.next = node // set the prev node's next property to the new node
+
+  this.length++ // increment the length of the linked list
+
+  return true // return true if the node was inserted successfully
+}
+```
+
+Explanation:
+
+- We check if the index is valid. If it is not, we return `false`.
+- If the index is `0`, we call the `unshift` method to insert the node at the front of the linked list.
+- If the index is the last index, we call the `push` method to insert the node at the end of the linked list.
+- We create a new `node` with the value passed to the method.
+- We get the node at the index - 1 using the `get` method.
+- We set the new node's `next` property to the `prev` node's `next` property.
+- We set the `prev` node's `next` property to the new node.
+- We increment the length of the linked list.
+- Finally, we return `true` if the node was inserted successfully.
