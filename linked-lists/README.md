@@ -539,3 +539,39 @@ Explanation:
 - We set the `prev` node's `next` property to the new node.
 - We increment the length of the linked list.
 - Finally, we return `true` if the node was inserted successfully.
+
+## Linked List: Remove
+
+Remove is used to remove a node at a specific index in the linked list. We want to remove the node at the index passed to the method.
+We also want to check if the index is valid. If it is not, we want to return `undefined`.
+
+```javascript
+remove(index) {
+  if (index < 0 || index >= this.length) return false // check if the index is valid
+  if (index === 0) return this.shift() // if the index is 0, call the shift method
+  if (index === this.length - 1) return this.pop() // if the index is the last index, call the pop method
+
+  const prev = this.get(index - 1) // get the node at the index - 1
+  const nodeToRemove = prev.next // get the node at the index
+  const next = nodeToRemove.next // get the node at the index + 1
+
+  prev.next = next // set the prev node's next property to the next node
+  nodeToRemove.next = null // set the node to remove's next property to null
+
+  this.length-- // decrement the length of the linked list
+  return nodeToRemove // return the removed node
+}
+```
+
+Explanation:
+
+- We check if the index is valid. If it is not, we return `false`.
+- If the index is `0`, we call the `shift` method to remove the node at the front of the linked list.
+- If the index is the last index, we call the `pop` method to remove the node at the end of the linked list.
+- We get the node at the index - 1 using the `get` method.
+- We get the node at the index using the `prev` node's `next` property.
+- We get the node at the index + 1 using the `nodeToRemove`'s `next` property.
+- We set the `prev` node's `next` property to the `next` node.
+- We set the `nodeToRemove`'s `next` property to `null` to remove the reference to the next node.
+- We decrement the length of the linked list.
+- Finally, we return the removed node.
