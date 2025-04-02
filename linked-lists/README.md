@@ -445,3 +445,37 @@ Explanation:
 - If the linked list has more than one node, we set the `head` to the next node in the linked list.
 - We set the `temp`'s `next` property to `null` to remove the reference to the next node.
 - Finally, we decrement the length of the linked list and return the removed node.
+
+## Linked List: Get
+
+Get is used to get a node at a specific index in the linked list. We want to return the node at the index passed to the method.
+We also want to check if the index is valid. If it is not, we want to return `undefined`.
+
+```javascript
+get(index) {
+  if (index < 0 || index >= this.length) return undefined // check if the index is valid
+
+  if (index === 0) return this.head // if the index is 0, return the head
+  if (index === this.length - 1) return this.tail // if the index is the last index, return the tail
+
+  let temp = this.head.next // create a temp variable to point to the head.next node
+  // we start at the head.next node because we already checked if the index is 0 and returned the head
+
+  for (let i = 1; i < index; i++) {
+    temp = temp.next // set temp to the next node in the linked list
+  }
+
+  return temp
+}
+```
+
+Explanation:
+
+- We check if the index is valid. If it is not, we return `undefined`.
+- If the index is `0`, we return the `head`.
+- If the index is the last index, we return the `tail`.
+- We create a `temp` variable to point to the `head.next` node.
+- We start at the `head.next` node because we already checked if the index is `0` and returned the `head`.
+- We loop through the linked list until we reach the index passed to the method.
+- We set `temp` to the next node in the linked list.
+- Finally, we return the `temp` node.
