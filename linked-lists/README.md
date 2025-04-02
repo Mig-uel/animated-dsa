@@ -377,3 +377,33 @@ pop() {
   return temp // return the removed node
 }
 ```
+
+## Linked List: Unshift
+
+Unshift is the opposite of push. It adds a new `node` to the front of the linked list.
+
+We want the new `node` to point to the current head and then set the head to the new `node`. We also want to increment the length of the linked list.
+
+```javascript
+unshift(value) {
+  const node = new Node(value) // create a new node with the value passed to the method
+
+  if (!this.head) {
+    this.head = node // if the linked list is empty, set the head to the new node
+    this.tail = node // if the linked list is empty, set the tail to the new node
+  } else {
+    node.next = this.head // set the new node's next property to the current head
+    this.head = node // set the head to the new node
+  }
+
+  this.length++ // increment the length of the linked list
+  return this // return the linked list
+}
+```
+
+Explanation:
+
+- We create a new `node` with the value passed to the method.
+- If the linked list is empty, we set the `head` and `tail` properties to the new `node`.
+- If the linked list is not empty, we set the new `node`'s `next` property to the current `head` and set the `head` to the new `node`.
+- Finally, we increment the length of the linked list and return the linked list.
