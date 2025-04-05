@@ -575,3 +575,42 @@ Explanation:
 - We set the `nodeToRemove`'s `next` property to `null` to remove the reference to the next node.
 - We decrement the length of the linked list.
 - Finally, we return the removed node.
+
+## Linked List: Reverse
+
+The reverse method is used to reverse the linked list. We want to reverse the linked list in place, which means that we want to change the order of the nodes in the linked list without creating a new linked list.
+
+```javascript
+reverse() {
+  if (!this.head) return undefined // if the linked list is empty, return undefined
+
+  let temp = this.head // create a temp variable to point to the head of the linked list
+
+  this.head = this.tail // set the head to the tail
+  this.tail = temp // set the tail to the temp variable which points to the head
+
+  let prev = null // create a prev variable to point to the previous node in the linked list
+  let next = temp.next // create a next variable to point to the next node in the linked list
+
+  for (let i = 0; i < this.length; i++) {
+    next = temp.next // set the next variable to the next node in the linked list
+    temp.next = prev // set the temp's next property to the prev node
+    prev = temp // set the prev variable to the temp variable which points to the head of the linked list
+    temp = next // set the temp variable to the next node in the linked list
+
+  return this // return the linked list
+}
+```
+
+Explanation:
+
+- We check if the linked list is empty. If it is, we return `undefined`.
+- We create a `temp` variable to point to the head of the linked list.
+- We set the `head` to the `tail` and the `tail` to the `temp` variable which points to the head.
+- We create a `prev` variable to point to the previous node in the linked list and a `next` variable to point to the next node in the linked list.
+- We loop through the linked list until we reach the end of the linked list.
+- We set the `next` variable to the next node in the linked list.
+- We set the `temp`'s `next` property to the `prev` node.
+- We set the `prev` variable to the `temp` variable which points to the head of the linked list.
+- We set the `temp` variable to the next node in the linked list.
+- Finally, we return the linked list.
