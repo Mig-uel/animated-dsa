@@ -80,19 +80,31 @@ Popping a node from a doubly linked list involves removing the last node from th
 ```js
 class DoublyLinkedList {
   pop() {
+    // if the list is empty, return undefined
     if (!this.head) return undefined
 
+    // store the current tail node in a variable
     const node = this.tail
+
+    // update the tail pointer to point to the previous node
     this.tail = this.tail.prev
 
+    // if the list has only one node, set head to null
     if (this.length === 1) {
+      // if the list has only one node, set head to null
       this.head = null
     } else {
+      // if the list has more than one node, set the new tail's next pointer to null
       this.tail.next = null
+
+      // set the popped node's previous pointer to null
       node.prev = null
     }
 
+    // decrement the length of the list by 1
     this.length--
+
+    // return the popped node
     return node
   }
 }
