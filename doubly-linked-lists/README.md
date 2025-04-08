@@ -164,3 +164,46 @@ Explanation:
 - If the list is not empty, the new node's next pointer is set to the current head, and the current head's previous pointer is set to the new node. The head is then updated to the new node.
 - The length of the list is incremented by 1.
 - The time complexity of this operation is O(1) because we are only updating pointers and not traversing the list.
+
+## Doubly Linked List: Shift
+
+Shifting a node from a doubly linked list involves removing the first node from the list and updating the head pointer to point to the new first node. If the list is empty, we return null.
+
+```js
+class DoublyLinkedList {
+  shift() {
+    // if the list is empty, return undefined
+    if (!this.head) return undefined
+
+    // store the current head node in a variable
+    const node = this.head
+
+    // update the head pointer to point to the next node
+    this.head = this.head.next
+
+    // if the list has only one node, set tail to null
+    if (this.length === 1) {
+      this.tail = null
+    } else {
+      // if the list has more than one node, set the new head's previous pointer to null
+      this.head.prev = null
+
+      // set the shifted node's next pointer to null
+      node.next = null
+    }
+
+    this.length--
+    return node
+  }
+}
+```
+
+Explanation:
+
+- If the list is empty, we return undefined.
+- We store the current head node in a variable.
+- We update the head pointer to point to the next node.
+- If the list has only one node, we set the tail to null.
+- If the list has more than one node, we set the new head's previous pointer to null and the shifted node's next pointer to null.
+- We decrement the length of the list by 1 and return the shifted node.
+- The time complexity of this operation is O(1) because we are only updating pointers and not traversing the list.
