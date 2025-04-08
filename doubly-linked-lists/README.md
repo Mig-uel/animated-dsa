@@ -48,11 +48,17 @@ class DoublyLinkedList {
       this.head = node
       this.tail = node
     } else {
+      // if the list is not empty, set the new node's previous pointer to the current tail
       node.prev = this.tail
+
+      // set the current tail's next pointer to the new node
       this.tail.next = node
+
+      // update the tail pointer to point to the new node
       this.tail = node
     }
 
+    // increment the length of the list by 1
     this.length++
   }
 }
