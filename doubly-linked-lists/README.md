@@ -64,3 +64,40 @@ Explanation:
 - If the list is empty, the head and tail are set to the new node.
 - If the list is not empty, the new node's previous pointer is set to the current tail, and the current tail's next pointer is set to the new node. The tail is then updated to the new node.
 - The length of the list is incremented by 1.
+
+## Doubly Linked List: Pop
+
+Unlike a singly linked list, popping a node from a doubly linked list is easier because we have access to the previous node. In a singly linked list, we have to traverse the entire list to find the previous node which would result in O(n) time complexity. In a doubly linked list, we can access the previous node directly from the tail node.
+
+Popping a node from a doubly linked list involves removing the last node from the list and updating the tail pointer to point to the new last node. If the list is empty, we return null.
+
+```js
+class DoublyLinkedList {
+  pop() {
+    if (!this.head) return undefined
+
+    const node = this.tail
+    this.tail = this.tail.prev
+
+    if (this.length === 1) {
+      this.head = null
+    } else {
+      this.tail.next = null
+      node.prev = null
+    }
+
+    this.length--
+    return node
+  }
+}
+```
+
+Explanation:
+
+- If the list is empty, we return undefined.
+- We store the current tail node in a variable.
+- We update the tail pointer to point to the previous node.
+- If the list has only one node, we set the head to null.
+- If the list has more than one node, we set the new tail's next pointer to null and the popped node's previous pointer to null.
+- We decrement the length of the list by 1 and return the popped node.
+- The time complexity of this operation is O(1) because we are only updating pointers and not traversing the list.
