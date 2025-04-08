@@ -119,3 +119,48 @@ Explanation:
 - If the list has more than one node, we set the new tail's next pointer to null and the popped node's previous pointer to null.
 - We decrement the length of the list by 1 and return the popped node.
 - The time complexity of this operation is O(1) because we are only updating pointers and not traversing the list.
+
+## Doubly Linked List: Unshift
+
+Unshifting a node from a doubly linked list involves adding a new node to the beginning of the list. This is similar to pushing a node to the end of the list, but we need to update the head pointer instead of the tail pointer.
+
+```js
+class DoublyLinkedList {
+  // add a new node to the beginning of the list
+  unshift(value) {
+    // create a new node with the given value
+    const node = new Node(value)
+
+    // if the list is empty
+    if (!this.head) {
+      // set head and tail to the new node
+      this.head = node
+      this.tail = node
+    } else {
+      // if the list is not empty
+
+      // set the new node's next pointer to the current head
+      node.next = this.head
+
+      // set the current head's previous pointer to the new node
+      this.head.prev = node
+
+      // update the head pointer to point to the new node
+      this.head = node
+    }
+
+    // increment the length of the list by 1
+    this.length++
+
+    return this
+  }
+}
+```
+
+Explanation:
+
+- A new node is created with the given value.
+- If the list is empty, the head and tail are set to the new node.
+- If the list is not empty, the new node's next pointer is set to the current head, and the current head's previous pointer is set to the new node. The head is then updated to the new node.
+- The length of the list is incremented by 1.
+- The time complexity of this operation is O(1) because we are only updating pointers and not traversing the list.
