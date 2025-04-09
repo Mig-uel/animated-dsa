@@ -411,3 +411,48 @@ Explanation:
 - The space complexity is O(1) because we are only updating pointers and not creating any new nodes.
 
 **TODO: Add more methods to the doubly linked list class such as reverse, print, etc.**
+
+## Doubly Linked List: isPalindrome
+
+A doubly linked list is a palindrome if the values of the nodes in the list are the same when read from both ends. To check if a doubly linked list is a palindrome, we can use two pointers: one starting from the head and the other starting from the tail. We can then compare the values of the nodes at these pointers until they meet in the middle.
+
+```js
+class DoublyLinkedList {
+  // check if the doubly linked list is a palindrome
+  isPalindrome() {
+    // if the list is empty or has only one node, return true
+    if (!this.head || this.length === 1) return true
+
+    // initialize two pointers: one starting from the head and the other from the tail
+    let forward = this.head
+    let backward = this.tail
+
+    // get the middle index of the list
+    let half = Math.floor(this.length / 2)
+
+    // compare the values of the nodes at the two pointers until they meet in the middle
+    for (let i = 0; i < half; i++) {
+      // if the values of the nodes at the two pointers are not equal, return false
+      if (forward.value !== backward.value) return false
+
+      // move the forward pointer to the next node
+      forward = forward.next
+      // move the backward pointer to the previous node
+      backward = backward.prev
+    }
+
+    return true
+  }
+}
+```
+
+Explanation:
+
+- If the list is empty or has only one node, we return true.
+- We initialize two pointers: one starting from the head and the other from the tail.
+- We get the middle index of the list.
+- We compare the values of the nodes at the two pointers until they meet in the middle.
+- If the values of the nodes at the two pointers are not equal, we return false.
+- If we reach the middle of the list without finding any unequal values, we return true.
+- The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
+- The space complexity is O(1) because we are only using two pointers and not creating any new nodes.
