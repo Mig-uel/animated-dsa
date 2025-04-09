@@ -293,3 +293,66 @@ Explanation:
 - Finally, we return true.
 - The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
 - The space complexity is O(1) because we are only updating the value of the node and not creating any new nodes.
+
+### Doubly Linked List: Insert
+
+Inserting a node in a doubly linked list involves adding a new node at the given index. If the index is out of bounds, we return false.
+
+```js
+class DoublyLinkedList {
+  insert(index, value) {
+    // if the index is out of bounds, return false
+    if (index < 0 || index > this.length) return false
+
+    if (index === 0) {
+      // if the index is 0, unshift the new node
+      this.unshift(value)
+      return true
+    } else if (index === this.length) {
+      // if the index is the last index, push the new node
+      this.push(value)
+      return true
+    }
+
+    // if the index is in the middle of the list, create a new node
+    const node = new Node(value)
+
+    // get the previous node at the given index - 1
+    const prevNode = this.get(index - 1)
+
+    // get the next node by accessing the next pointer of the previous node
+    const nextNode = prevNode.next
+
+    // set the previous node's next pointer to the new node
+    prevNode.next = node
+
+    // set the new node's previous pointer to the previous next node
+    node.next = nextNode
+
+    // set the new node's previous pointer to the previous node
+    node.prev = prevNode
+
+    // set the next node's previous pointer to the new node
+    nextNode.prev = node
+
+    this.length++
+    return true
+  }
+}
+```
+
+Explanation:
+
+- If the index is out of bounds, we return false.
+- If the index is 0, we unshift the new node and return true.
+- If the index is the last index, we push the new node and return true.
+- If the index is in the middle of the list, we create a new node with the given value.
+- We get the previous node at the given index - 1 using the get method.
+- We get the next node by accessing the next pointer of the previous node.
+- We set the previous node's next pointer to the new node.
+- We set the new node's previous pointer to the previous next node.
+- We set the new node's previous pointer to the previous node.
+- We set the next node's previous pointer to the new node.
+- We increment the length of the list by 1 and return true.
+- The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
+- The space complexity is O(1) because we are only updating pointers and not creating any new nodes.
