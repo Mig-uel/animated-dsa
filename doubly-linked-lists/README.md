@@ -356,3 +356,58 @@ Explanation:
 - We increment the length of the list by 1 and return true.
 - The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
 - The space complexity is O(1) because we are only updating pointers and not creating any new nodes.
+
+## Doubly Linked List: Remove
+
+Removing a node from a doubly linked list involves removing the node at the given index. If the index is out of bounds, we return undefined.
+
+```js
+class DoublyLinkedList {
+  remove(index) {
+    // if the index is out of bounds, return undefined
+    if (index < 0 || index >= this.length) return undefined
+
+    // if the index is 0, shift the first node
+    if (index === 0) return this.shift()
+    // if the index is the last index, pop the last node
+    else if (index === this.length - 1) return this.pop()
+
+    // if the index is in the middle of the list, get the node at the given index
+    const node = this.get(index)
+    // get the previous node by accessing the previous pointer of the current node
+    const prev = node.prev
+    // get the next node by accessing the next pointer of the current node
+    const next = node.next
+
+    // set the previous node's next pointer to the next node
+    prev.next = next
+    // set the next node's previous pointer to the previous node
+    next.prev = prev
+
+    // clear the references of the removed node
+    node.prev = null
+    node.next = null
+
+    // decrement the length of the list by 1
+    this.length--
+    return node
+  }
+}
+```
+
+Explanation:
+
+- If the index is out of bounds, we return undefined.
+- If the index is 0, we shift the first node and return it.
+- If the index is the last index, we pop the last node and return it.
+- If the index is in the middle of the list, we get the node at the given index using the get method.
+- We get the previous node by accessing the previous pointer of the current node.
+- We get the next node by accessing the next pointer of the current node.
+- We set the previous node's next pointer to the next node.
+- We set the next node's previous pointer to the previous node.
+- We clear the references of the removed node by setting its previous and next pointers to null.
+- We decrement the length of the list by 1 and return the removed node.
+- The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
+- The space complexity is O(1) because we are only updating pointers and not creating any new nodes.
+
+**TODO: Add more methods to the doubly linked list class such as reverse, print, etc.**
