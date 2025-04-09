@@ -207,3 +207,58 @@ Explanation:
 - If the list has more than one node, we set the new head's previous pointer to null and the shifted node's next pointer to null.
 - We decrement the length of the list by 1 and return the shifted node.
 - The time complexity of this operation is O(1) because we are only updating pointers and not traversing the list.
+
+# Doubly Linked List: Get
+
+Getting a node from a doubly linked list involves traversing the list to find the node at the given index. If the index is out of bounds, we return null.
+
+```js
+class DoublyLinkedList {
+  get(index) {
+    // if the index is out of bounds, return undefined
+    if (index < 0 || index >= this.length) return undefined
+
+    // if the index is 0, return the head node
+    if (index === 0) return this.head
+
+    // if the index is the last index, return the tail node
+    if (index === this.length - 1) return this.tail
+
+    // initialize a variable to store the current node
+    let temp
+
+    if (index < this.length / 2) {
+      // if the index is in the first half of the list, start from the head
+      temp = this.head
+
+      // traverse the list to find the node at the given index
+      // by moving to the next node until we reach the index
+      for (let i = 0; i < index; i++) {
+        temp = temp.next
+      }
+    } else {
+      // if the index is in the second half of the list, start from the tail
+      temp = this.tail
+
+      // traverse the list to find the node at the given index
+      // by moving to the previous node until we reach the index
+      for (let i = this.length - 1; i > index; i--) {
+        temp = temp.prev
+      }
+    }
+
+    // return the node at the given index
+    return temp
+  }
+}
+```
+
+Explanation:
+
+- If the index is out of bounds, we return undefined.
+- If the index is 0, we return the head node. If the index is the last index, we return the tail node.
+- We initialize a variable to store the current node.
+- If the index is in the first half of the list, we start from the head and traverse the list to find the node at the given index by moving to the next node until we reach the index.
+- If the index is in the second half of the list, we start from the tail and traverse the list to find the node at the given index by moving to the previous node until we reach the index.
+- Finally, we return the node at the given index.
+- The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
