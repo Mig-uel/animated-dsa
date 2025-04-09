@@ -262,3 +262,34 @@ Explanation:
 - If the index is in the second half of the list, we start from the tail and traverse the list to find the node at the given index by moving to the previous node until we reach the index.
 - Finally, we return the node at the given index.
 - The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
+
+## Doubly Linked List: Set
+
+Setting a node in a doubly linked list involves updating the value of the node at the given index. If the index is out of bounds, we return false.
+
+```js
+class DoublyLinkedList {
+  set(index, value) {
+    // get the node at the given index
+    const node = this.get(index)
+
+    // if the index is out of bounds, return false
+    if (!node) return false
+
+    // update the value of the node at the given index
+    node.value = value
+
+    // return true
+    return true
+  }
+}
+```
+
+Explanation:
+
+- We get the node at the given index using the get method.
+- If the index is out of bounds, we return false.
+- We update the value of the node at the given index.
+- Finally, we return true.
+- The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
+- The space complexity is O(1) because we are only updating the value of the node and not creating any new nodes.
