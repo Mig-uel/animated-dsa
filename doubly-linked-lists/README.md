@@ -456,3 +456,13 @@ Explanation:
 - If we reach the middle of the list without finding any unequal values, we return true.
 - The time complexity of this operation is O(n) because we may have to traverse the entire list in the worst case.
 - The space complexity is O(1) because we are only using two pointers and not creating any new nodes.
+
+## Doubly Linked List: Swap Pairs
+
+Swapping pairs in a doubly linked list involves swapping the values of adjacent nodes in the list. If the list has an odd number of nodes, the last node will remain unchanged.
+
+**TODO: come back to this later**
+
+```js
+
+```
