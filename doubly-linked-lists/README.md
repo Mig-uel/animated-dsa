@@ -464,5 +464,29 @@ Swapping pairs in a doubly linked list involves swapping the values of adjacent 
 **TODO: come back to this later**
 
 ```js
+// swapPairs() {
+//     if (!this.head || this.length === 1) return undefined
 
+//     let first = this.head
+//     let second = first.next
+
+//     let temp = second.next
+
+//     while (temp !== null) {
+//         second.prev = first.prev
+//         first.prev = second
+
+//         first.next = second.next
+//         second.next = first
+
+//       first = second
+//       second = temp
+
+//       temp.prev = first
+//       temp = temp.next
+
+//     }
+
+//     return this
+// }
 ```
