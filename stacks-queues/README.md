@@ -51,3 +51,40 @@ class Stack {
   }
 }
 ```
+
+## Stack: Push
+
+The `push` method adds a new element to the top of the stack. We will create a new node with the given value and set the `next` pointer of the new node to the current top of the stack. Then, we will set the `top` pointer of the stack to the new node and increment the length of the stack by 1.
+
+```js
+class Stack {
+  push(value) {
+    // create a new node with the given value
+    const node = new Node(value)
+
+    if (!this.top) {
+      // if the stack is empty, set the top of the stack to the new node
+      this.top = node
+    } else {
+      // if the stack is not empty, set the next pointer of the new node to the current top of the stack
+      node.next = this.top
+
+      // set the top of the stack to the new node
+      this.top = node
+    }
+
+    // increment the length of the stack by 1
+    this.length++
+
+    return this
+  }
+}
+```
+
+Explanation:
+
+- We create a new node with the given value.
+- If the stack is empty, we set the top of the stack to the new node.
+- If the stack is not empty, we set the next pointer of the new node to the current top of the stack and set the top of the stack to the new node.
+- We increment the length of the stack by 1.
+- We return the stack object to allow for method chaining.
