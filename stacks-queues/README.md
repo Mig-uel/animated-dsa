@@ -124,3 +124,18 @@ Explanation:
 - We set the next pointer of the popped node to `null` to remove the reference to the next node.
 - We decrement the length of the stack by 1.
 - We return the popped node to allow for further processing if needed.
+
+## Queue: Introduction
+
+A queue is a linear data structure that follows the First In First Out (FIFO) principle. This means that the first element added to the queue will be the first one to be removed. Queues are often compared to a line of people waiting to enter a store, where the first person in line is the first one to enter the store.
+
+Queues are used in many applications, such as:
+
+- Print spooling: When a print job is sent to a printer, it is added to a queue. The printer processes the jobs in the order they were received.
+- Task scheduling: Many operating systems use a queue to manage tasks. The tasks are added to the queue in the order they are received, and the operating system processes them in that order.
+- Breadth-first search: Queues are used in algorithms that require breadth-first search. The current state is saved in a queue, and when a dead end is reached, the state is restored from the queue to try a different path.
+- Network packet management: Queues are used in network packet management to keep track of packets that need to be sent or received. The packets are added to the queue in the order they are received, and the network device processes them in that order.
+- Memory management: Queues are used in memory management to keep track of memory allocation and deallocation. When a function is called, memory is allocated on the queue. When the function returns, the memory is deallocated from the queue.
+- Event handling: Many applications use a queue to manage events. The events are added to the queue in the order they are received, and the application processes them in that order.
+
+For a queue, we have a `front` pointer that points to the first element added to the queue and a `back` pointer that points to the last element added to the queue. The `front` pointer is used to add and remove elements from the queue, while the `back` pointer is used to keep track of the last element added to the queue. We actually don't even need the `back` pointer.
