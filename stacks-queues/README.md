@@ -159,8 +159,8 @@ class Queue {
     // create a new node with the given value
     const node = new Node(value)
 
-    // set the front of the queue to the new node
-    this.front = node
+    // set the first of the queue to the new node
+    this.first = node
 
     // set the last of the queue to the new node
     this.last = node
