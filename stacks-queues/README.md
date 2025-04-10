@@ -21,4 +21,33 @@ Remember, removing an element from the end of a linked list is O(n) because you 
 For a linked list, it is better to use the head of the list as the top of the stack. This way, you can add and remove elements in O(1) time. The only downside is that you have to traverse the entire list to find the last element, which is O(n).
 
 In a linked list, we had `head` and `tail` pointers. The `head` pointer points to the first element of the list, and the `tail` pointer points to the last element of the list. In a stack, we have a `top` pointer that points to the last element added to the stack and a `bottom` pointer that points to the first element added to the stack. The `top` pointer is used to add and remove elements from the stack, while the `bottom` pointer is used to keep track of the first element added to the stack. We actually don't even need the `bottom` pointer.
-  
+
+## Stack: Constructor
+
+Our `Node` class and the `Stack` class will be identical to the `LinkedList` class. The only difference is that we will not have a `tail` pointer in the `Stack` class. We will also have a `top` pointer that points to the last element added to the stack.
+
+```js
+class Node {
+  constructor(value) {
+    this.value = value
+    this.next = null
+  }
+}
+```
+
+```js
+class Stack {
+  constructor(value) {
+    // create a new node with the given value
+    const node = new Node(value)
+
+    // set the top of the stack to the new node
+    this.top = node
+    // we are not using a bottom pointer in the stack, so we don't need to set it
+    // this.bottom = null
+
+    // set the length of the stack to 1
+    this.length = 1
+  }
+}
+```
