@@ -88,3 +88,39 @@ Explanation:
 - If the stack is not empty, we set the next pointer of the new node to the current top of the stack and set the top of the stack to the new node.
 - We increment the length of the stack by 1.
 - We return the stack object to allow for method chaining.
+
+## Stack: Pop
+
+The `pop` method removes the top element from the stack. We will set the `top` pointer of the stack to the next node in the stack and decrement the length of the stack by 1. If the stack is empty, we will return `undefined`.
+
+```js
+class Stack {
+  pop() {
+    // if the stack is empty, return undefined
+    if (!this.top) return undefined
+
+    // store the current top of the stack in a variable
+    const node = this.top
+
+    // set the top of the stack to the next node in the stack
+    this.top = this.top.next
+
+    // set the next pointer of the popped node to null
+    node.next = null
+
+    // decrement the length of the stack by 1
+    this.length--
+
+    return node
+  }
+}
+```
+
+Explanation:
+
+- We check if the stack is empty. If it is, we return `undefined`.
+- We store the current top of the stack in a variable.
+- We set the top of the stack to the next node in the stack.
+- We set the next pointer of the popped node to `null` to remove the reference to the next node.
+- We decrement the length of the stack by 1.
+- We return the popped node to allow for further processing if needed.
