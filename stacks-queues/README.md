@@ -139,3 +139,34 @@ Queues are used in many applications, such as:
 - Event handling: Many applications use a queue to manage events. The events are added to the queue in the order they are received, and the application processes them in that order.
 
 For a queue, we have a `front` pointer that points to the first element added to the queue and a `back` pointer that points to the last element added to the queue. The `front` pointer is used to add and remove elements from the queue, while the `back` pointer is used to keep track of the last element added to the queue. We actually don't even need the `back` pointer.
+
+## Queue: Constructor
+
+As with the stack, our `Node` class and the `Queue` class will be identical to the `LinkedList` class. The only difference is that we will not have a `tail` pointer in the `Queue` class. We will also have a `front` pointer that points to the first element added to the queue.
+
+```js
+class Node {
+  constructor(value) {
+    this.value = value
+    this.next = null
+  }
+}
+```
+
+```js
+class Queue {
+  constructor(value) {
+    // create a new node with the given value
+    const node = new Node(value)
+
+    // set the front of the queue to the new node
+    this.front = node
+
+    // set the last of the queue to the new node
+    this.last = node
+
+    // set the length of the queue to 1
+    this.length = 1
+  }
+}
+```
