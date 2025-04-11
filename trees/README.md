@@ -184,7 +184,7 @@ Finally, we add the value of 27. 27 is less than 47, so we go to the left. 27 is
 
 One thing to point out, all of the items greater than the root node (47) are on the right side of the tree and all of the items less than the root node (47) are on the left side of the tree. This is a property of binary search trees.
 
-## Trees: BST Big-O Notation
+## Trees: Binary Search Trees (BST) - Big-O Notation
 
 A binary search tree is a data structure that allows for efficient searching, insertion, and deletion operations. The time complexity of these operations depends on the height of the tree.
 
