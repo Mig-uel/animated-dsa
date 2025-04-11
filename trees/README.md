@@ -183,3 +183,25 @@ Finally, we add the value of 27. 27 is less than 47, so we go to the left. 27 is
 ```
 
 One thing to point out, all of the items greater than the root node (47) are on the right side of the tree and all of the items less than the root node (47) are on the left side of the tree. This is a property of binary search trees.
+
+## Trees: BST Big-O Notation
+
+A binary search tree is a data structure that allows for efficient searching, insertion, and deletion operations. The time complexity of these operations depends on the height of the tree.
+
+In the best case, the tree is balanced, and the height of the tree is log(n), where n is the number of nodes in the tree. In this case, the time complexity for searching, inserting, and deleting a node is O(log n).
+
+In the worst case, the tree is unbalanced, and the height of the tree is n. In this case, the time complexity for searching, inserting, and deleting a node is O(n).
+
+Traversing a tree is a **divide and conquer** algorithm. We divide the tree into two subtrees and conquer each subtree separately. The time complexity for traversing a tree is O(n), where n is the number of nodes in the tree.
+
+Since Big-O notation is a measure of the worst-case scenario, we can say that it provides an upper bound on the time complexity of an algorithm, helping us understand its efficiency in the most unfavorable conditions.
+
+Our best possible scenario is O(log n) and our worst possible scenario is O(n). We usually treat the Big-O notation of a binary search tree as O(log n) because we want to keep our trees balanced. If we don't, we can end up with a linked list, which is O(n).
+
+Effectively, for `lookup`, `insert`, and `delete` operations, we can say that the time complexity is O(log n) in the best case and O(n) in the worst case.
+
+- `insert` is better for a linked list than for a balanced tree.
+- `lookup` is better for a binary search tree than for a linked list.
+- `delete` is better for a binary search tree than for a linked list.
+
+We are basically giving up the efficiency of `insert` for the efficiency of `lookup` and `delete`. This is a trade-off that we make when we use a binary search tree.
