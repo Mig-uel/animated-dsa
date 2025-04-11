@@ -209,3 +209,43 @@ Explanation:
 - If the queue is not empty, we set the next pointer of the current last node to the new node and set the last of the queue to the new node.
 - We increment the length of the queue by 1.
 - We return the queue object to allow for method chaining.
+
+## Queue: Dequeue
+
+The `dequeue` method removes the first element from the queue. We will set the `first` pointer of the queue to the next node in the queue and decrement the length of the queue by 1. If the queue is empty, we will return `undefined`.
+
+```js
+class Queue {
+  dequeue() {
+    // if the queue is empty, return undefined
+    if (!this.first) return undefined
+
+    // store the current first of the queue in a variable
+    const node = this.first
+
+    // set the first of the queue to the next node in the queue
+    this.first = this.first.next
+
+    // if the queue is now empty, set the last of the queue to null
+    if (this.length === 1) this.last = this.first
+
+    // subtract 1 from the length of the queue
+    this.length--
+
+    // set the next pointer of the dequeued node to null
+    node.next = null
+
+    return node
+  }
+}
+```
+
+Explanation:
+
+- We check if the queue is empty. If it is, we return `undefined`.
+- We store the current first of the queue in a variable.
+- We set the first of the queue to the next node in the queue.
+- If the queue is now empty, we set the last of the queue to null.
+- We decrement the length of the queue by 1.
+- We set the next pointer of the dequeued node to `null` to remove the reference to the next node.
+- We return the dequeued node to allow for further processing if needed.
