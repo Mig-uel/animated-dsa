@@ -284,3 +284,49 @@ Explanation:
 - We create a new string to hold the reversed string.
 - We pop each character off the stack and add it to the reversed string using a while loop.
 - We return the reversed string.
+
+## Stack: Parentheses Matching
+
+A common interview question is to check if a string of parentheses is valid. This means that each opening parenthesis has a matching closing parenthesis and that the parentheses are properly nested.
+
+```ts
+function isMatching(input: string) {
+  // check if the input is empty
+  if (!input.length) return true
+
+  // create a new stack
+  const stack = new Stack()
+
+  // loop through each character of the input string
+  for (let i = 0; i < input.length; i++) {
+    // get the current character
+    const char = input[i]
+
+    // check if the character is an opening parenthesis
+    if (char === '(') stack.push(char)
+    else {
+      // if the character is a closing parenthesis, check if the stack is empty
+      // if the stack is empty, return false
+      if (stack.isEmpty()) return false
+
+      // if the stack is not empty, pop the top element off the stack
+      stack.pop()
+    }
+  }
+
+  // check if the stack is empty
+  // if the stack is empty, return true
+  return stack.isEmpty()
+}
+```
+
+Explanation:
+
+- We check if the input is empty. If it is, we return true.
+- We create a new stack.
+- We loop through each character of the input string using a for loop.
+- We check if the character is an opening parenthesis. If it is, we push it onto the stack.
+- If the character is a closing parenthesis, we check if the stack is empty. If it is, we return false.
+- If the stack is not empty, we pop the top element off the stack.
+- We check if the stack is empty. If it is, we return true.
+- If the stack is not empty, we return false.
