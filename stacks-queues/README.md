@@ -170,3 +170,42 @@ class Queue {
   }
 }
 ```
+
+## Queue: Enqueue
+
+The `enqueue` method adds a new element to the back of the queue. We will create a new node with the given value and set the `next` pointer of the current last node to the new node. Then, we will set the `last` pointer of the queue to the new node and increment the length of the queue by 1.
+
+```js
+class Stack {
+  enqueue(value) {
+    // create a new node with the given value
+    const node = new Node(value)
+
+    if (!this.first) {
+      // if the queue is empty, set the first of the queue to the new node
+      this.first = node
+
+      // set the last of the queue to the new node
+      this.last = node
+    } else {
+      // if the queue is not empty, set the next pointer of the current last node to the new node
+      this.last.next = node
+
+      // set the last of the queue to the new node
+      this.last = node
+    }
+
+    // increment the length of the queue by 1
+    this.length++
+    return this
+  }
+}
+```
+
+Explanation:
+
+- We create a new node with the given value.
+- If the queue is empty, we set the first of the queue to the new node and set the last of the queue to the new node.
+- If the queue is not empty, we set the next pointer of the current last node to the new node and set the last of the queue to the new node.
+- We increment the length of the queue by 1.
+- We return the queue object to allow for method chaining.
