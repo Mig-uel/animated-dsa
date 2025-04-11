@@ -125,3 +125,61 @@ graph TD
 The top node in a tree is called the **root** or **parent** node. The nodes below the root are called **children**. The children of a node are called **siblings**. The **children** can also be **parents** of their own children.
 
 A node that does not have any children is called a **leaf** node. Leaf nodes are the endpoints of a tree and do not have any further branches.
+
+## Trees: Binary Search Trees (BST)
+
+A **binary search tree (BST)** is a binary tree in which each node has a value, and the values of the left subtree are less than the value of the parent node, while the values of the right subtree are greater than the value of the parent node. This property allows for efficient searching, insertion, and deletion operations.
+
+Let's say we start of with the **root** node with a value of 47. We want to add the value 76.
+
+If the value that we want to add is greater than the value of the root node, we go to the right. If it is less than the value of the root node, we go to the left.
+
+In our case, 76 is greater than 47, so we go to the right.
+
+Now, we want to add the value 52. 52 is greater than 47, so we go to the right. Since we already have a node with the value of 76, we need to check if 52 is less than or greater than 76. Remember, we are looking for the right place to add the new node and if a value is greater than the value of the parent node, we go to the right. If it is less than the value of the parent node, we go to the left.
+
+In our case, 52 is less than 76, so we go to the left. Since there is no node there, we can add the value of 52.
+
+Now, we want to add the value of 21. 21 is less than 47, so we go to the left. Since there is no node there, we can add the value of 21.
+
+Our tree now looks like this:
+
+```plaintext
+        47
+       /  \
+      21   76
+          /
+         52
+```
+
+We want to add the value of 82. 82 is greater than 47, so we go to the right. 82 is also greater than 76, so we go to the right again. Since there is no node there, we can add the value of 82.
+
+```plaintext
+        47
+       /  \
+      21   76
+          / \
+         52  82
+```
+
+Now, we want to add the value of 18. 18 is less than 47, so we go to the left. 18 is also less than 21, so we go to the left again. Since there is no node there, we can add the value of 18.
+
+```plaintext
+        47
+       /  \
+      21   76
+     /    / \
+    18   52  82
+```
+
+Finally, we add the value of 27. 27 is less than 47, so we go to the left. 27 is greater than 21, so we go to the right. Since there is no node there, we can add the value of 27.
+
+```plaintext
+        47
+       /  \
+      21   76
+     / \   / \
+    18 27 52 82
+```
+
+One thing to point out, all of the items greater than the root node (47) are on the right side of the tree and all of the items less than the root node (47) are on the left side of the tree. This is a property of binary search trees.
