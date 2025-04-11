@@ -176,7 +176,7 @@ class Queue {
 The `enqueue` method adds a new element to the back of the queue. We will create a new node with the given value and set the `next` pointer of the current last node to the new node. Then, we will set the `last` pointer of the queue to the new node and increment the length of the queue by 1.
 
 ```js
-class Stack {
+class Queue {
   enqueue(value) {
     // create a new node with the given value
     const node = new Node(value)
