@@ -385,3 +385,45 @@ Explanation:
 - We loop through each element of the temp stack using a while loop.
 - We pop the top element off the temp stack and push it onto the original stack.
 - We return the original stack.
+
+## Queue: Enqueue Using Two Stacks
+
+A common interview question is to implement a queue using two stacks.
+
+```ts
+enqueue(value) {
+  // Check if the value is undefined or null
+  if (value === undefined || value === null) return undefined
+
+  // loop through each element of stack1 and push it onto stack2
+  while (!this.stack1.isEmpty()) {
+    // pop the top element off stack1 and store it in a variable
+    const popped = this.stack1.pop()
+
+    // push the popped element onto stack2
+    this.stack2.push(popped)
+  }
+
+  // push the new value onto stack1
+  this.stack2.push(value)
+
+  // Move elements back to stack1 to maintain queue order
+  while (!this.stack2.isEmpty()) {
+    this.stack1.push(this.stack2.pop())
+  }
+
+  // Increment the length of the queue by 1
+  this.length += 1
+
+  return this
+}
+```
+
+Explanation:
+
+- We check if the value is `undefined` or `null`. If it is, we return `undefined`.
+- We loop through each element of `stack1` using a while loop and pop the top element off `stack1` and store it in a variable.
+- We push the popped element onto `stack2`.
+- We push the new value onto `stack1`.
+- We loop through each element of `stack2` using a while loop and pop the top element off `stack2` and push it onto `stack1`.
+- We increment the length of the queue by 1.
