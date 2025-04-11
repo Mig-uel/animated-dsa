@@ -205,3 +205,34 @@ Effectively, for `lookup`, `insert`, and `delete` operations, we can say that th
 - `delete` is better for a binary search tree than for a linked list.
 
 We are basically giving up the efficiency of `insert` for the efficiency of `lookup` and `delete`. This is a trade-off that we make when we use a binary search tree.
+
+## Trees: Binary Search Trees (BST) - Constructor
+
+```js
+// Node class
+class Node {
+  // constructor for the Node class
+  // takes a value as an argument
+  constructor(value) {
+    // assigns the value to the node
+    this.value = value
+
+    // assigns the left child to null
+    this.left = null
+
+    // assigns the right child to null
+    this.right = null
+  }
+}
+
+// Binary Search Tree class
+class BST {
+  // initializes the root of the tree to null
+  root = null // root of the tree
+}
+```
+
+Explanation:
+
+- The `Node` class represents a node in the binary search tree. It has a constructor that takes a value as an argument and assigns it to the `value` property of the node. It also initializes the `left` and `right` properties to null, indicating that the node does not have any children yet.
+- The `BST` class represents the binary search tree itself. It has a `root` property that is initialized to null, indicating that the tree is empty at the moment. The `root` property will eventually point to the root node of the tree once we start adding nodes to it.
