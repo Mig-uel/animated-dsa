@@ -330,3 +330,58 @@ Explanation:
 - If the stack is not empty, we pop the top element off the stack.
 - We check if the stack is empty. If it is, we return true.
 - If the stack is not empty, we return false.
+
+## Stack: Sort Stack
+
+A common interview question is to sort a stack using another stack. This means that we need to sort the elements in the stack in ascending order using only another stack.
+
+```ts
+function sortStack(stack) {
+  // check if the stack is empty
+  if (stack.isEmpty()) return undefined
+
+  // check if the stack has only one element
+  if (stack.size() === 1) return stack
+
+  // create a new stack to hold the sorted elements
+  const temp = new Stack()
+
+  // loop through each element of the stack
+  while (!stack.isEmpty()) {
+    // pop the top element off the stack
+    // and store it in a variable
+    const popped = stack.pop()
+
+    // check if the temp stack is empty or if the popped element is less than or equal to the top element of the temp stack
+    while (!temp.isEmpty() && temp.peek() > popped) {
+      // if it is, pop the top element off the temp stack and push it onto the original stack
+      // this will ensure that the elements in the temp stack are sorted in ascending order
+      stack.push(temp.pop())
+    }
+
+    // push the popped element onto the temp stack
+    temp.push(popped)
+  }
+
+  // loop through each element of the temp stack
+  while (!temp.isEmpty()) {
+    // pop the top element off the temp stack and push it onto the original stack
+    stack.push(temp.pop())
+  }
+
+  return stack
+}
+```
+
+Explanation:
+
+- We check if the stack is empty. If it is, we return `undefined`.
+- We check if the stack has only one element. If it does, we return the stack.
+- We create a new stack to hold the sorted elements.
+- We loop through each element of the stack using a while loop.
+- We pop the top element off the stack and store it in a variable.
+- We check if the temp stack is empty or if the popped element is less than or equal to the top element of the temp stack. If it is, we pop the top element off the temp stack and push it onto the original stack. This will ensure that the elements in the temp stack are sorted in ascending order.
+- We push the popped element onto the temp stack.
+- We loop through each element of the temp stack using a while loop.
+- We pop the top element off the temp stack and push it onto the original stack.
+- We return the original stack.
