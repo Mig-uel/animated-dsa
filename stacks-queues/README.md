@@ -249,3 +249,38 @@ Explanation:
 - We decrement the length of the queue by 1.
 - We set the next pointer of the dequeued node to `null` to remove the reference to the next node.
 - We return the dequeued node to allow for further processing if needed.
+
+## Stack: Reverse a String
+
+A common interview question is to reverse a string using a stack. This is a great way to test your understanding of stacks and how they work.
+The idea is to push each character of the string onto the stack and then pop each character off the stack to create the reversed string.
+
+```js
+function reverseString(string) {
+  // create a new stack
+  const stack = new Stack()
+
+  // push each character of the string onto the stack
+  for (let i = 0; i < string.length; i++) {
+    stack.push(string[i])
+  }
+
+  // create a new string to hold the reversed string
+  let reversedString = ''
+
+  // pop each character off the stack and add it to the reversed string
+  while (stack.length > 0) {
+    reversedString += stack.pop().value
+  }
+
+  return reversedString
+}
+```
+
+Explanation:
+
+- We create a new stack.
+- We push each character of the string onto the stack using a for loop.
+- We create a new string to hold the reversed string.
+- We pop each character off the stack and add it to the reversed string using a while loop.
+- We return the reversed string.
