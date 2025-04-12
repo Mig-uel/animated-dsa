@@ -279,3 +279,68 @@ while loop (current !== null)
     else
         set current to the left child or right child depending on the value of the new node
 ```
+
+## Trees: Binary Search Trees (BST) - Insertion - Implementation
+
+```js
+insert(value) {
+  // create a new node with the given value
+  const node = new Node(value)
+
+  // if the tree is empty, set the root to the new node, and return the tree
+  if (!this.root) {
+    this.root = node
+    return this
+  }
+
+  // create a variable current or temp and set it to the root
+  // this will keep track of the current node we are comparing with
+  let currentNode = this.root
+
+  // use a while loop to traverse the tree until we find the right place to insert the new node
+  while(true) {
+    // check if the value of the new node is equal to the value of the current node
+    // if it is, we do not insert it again, so we return undefined
+    if (value === currentNode.value) return undefined
+
+    // check if the value of the new node is less than the value of the current node
+    // if it is, we go to the left child
+    if (value < currentNode.value) {
+      // if the left child is null, we can insert the new node here, and return the tree
+      if (!currentNode.left) {
+        currentNode.left = node
+        return this
+      }
+
+      // if the left child is not null, we set currentNode to the left child
+      // this will allow us to continue traversing the tree
+      currentNode = currentNode.left
+    }
+    // check if the value of the new node is greater than the value of the current node
+    // if it is, we go to the right child
+    else {
+      // if the right child is null, we can insert the new node here, and return the tree
+      if (!currentNode.right) {
+        currentNode.right = node
+        return this
+      }
+
+      // if the right child is not null, we set currentNode to the right child
+      // this will allow us to continue traversing the tree
+      currentNode = currentNode.right
+    }
+  }
+}
+```
+
+Explanation:
+
+- We create a new node with the given value.
+- If the tree is empty, we set the root to the new node and return the tree.
+- We create a variable `currentNode` and set it to the root. This will keep track of the current node we are comparing with.
+- We use a while loop to traverse the tree until we find the right place to insert the new node.
+- We check if the value of the new node is equal to the value of the current node. If it is, we do not insert it again, so we return undefined.
+- We check if the value of the new node is less than the value of the current node. If it is, we go to the left child. If the left child is null, we can insert the new node here and return the tree. If the left child is not null, we set `currentNode` to the left child. This will allow us to continue traversing the tree.
+- We check if the value of the new node is greater than the value of the current node. If it is, we go to the right child. If the right child is null, we can insert the new node here and return the tree. If the right child is not null, we set `currentNode` to the right child. This will allow us to continue traversing the tree.
+- We repeat this process until we find the right place to insert the new node.
+- Finally, we return the tree.
