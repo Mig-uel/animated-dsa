@@ -344,3 +344,64 @@ Explanation:
 - We check if the value of the new node is greater than the value of the current node. If it is, we go to the right child. If the right child is null, we can insert the new node here and return the tree. If the right child is not null, we set `currentNode` to the right child. This will allow us to continue traversing the tree.
 - We repeat this process until we find the right place to insert the new node.
 - Finally, we return the tree.
+
+## Trees: Binary Search Trees (BST) - Contains
+
+To check if a binary search tree contains a given value, we can use a recursive approach or an iterative approach. In this case, we will use the iterative approach.
+
+```plaintext
+if root === null, return false
+
+let current = this.root
+
+while current !== null:
+  if the value is less current.value, set current to the left
+
+  else if the value is greater than current.value set current to the right
+
+  else if current.value === value we are looking for, return true
+
+return false if the loop finishes meaning to matching value was found
+```
+
+```js
+contains(value) {
+  // if the tree is empty, return false
+  if (!this.root) return false
+
+  // create a variable current and set it to the root
+  // this will keep track of the current node we are comparing with
+  let current = this.root
+
+  // use a while loop to traverse the tree until we find the value or reach a leaf node
+  while (current !== null) {
+    // check if the value is less than the value of the current node
+    // if it is, we go to the left child
+    if (value < current.value) {
+      // set current to the left child
+      current = current.left
+    }
+    // if the value is greater than the value of the current node
+    else if (value > current.value) {
+      // set current to the right child
+      current = current.right
+    }
+    // else return true
+    else return true
+  }
+
+  // if we reach here, it means we did not find the value in the tree
+  // so we return false
+  return false
+}
+```
+
+Explanation:
+
+- We check if the tree is empty. If it is, we return false.
+- We create a variable `current` and set it to the root. This will keep track of the current node we are comparing with.
+- We use a while loop to traverse the tree until we find the value or reach a leaf node.
+- We check if the value is less than the value of the current node. If it is, we go to the left child by setting `current` to the left child.
+- We check if the value is greater than the value of the current node. If it is, we go to the right child by setting `current` to the right child.
+- If the value is equal to the value of the current node, we return true.
+- If we reach here, it means we did not find the value in the tree, so we return false.
