@@ -236,3 +236,46 @@ Explanation:
 
 - The `Node` class represents a node in the binary search tree. It has a constructor that takes a value as an argument and assigns it to the `value` property of the node. It also initializes the `left` and `right` properties to null, indicating that the node does not have any children yet.
 - The `BST` class represents the binary search tree itself. It has a `root` property that is initialized to null, indicating that the tree is empty at the moment. The `root` property will eventually point to the root node of the tree once we start adding nodes to it.
+
+## Trees: Binary Search Trees (BST) - Insertion
+
+To insert a new node into a binary search tree, we need to follow these steps:
+
+1. Create a new node with the given value.
+2. If the tree is empty (i.e., the root is null), set the root to the new node.
+3. If the tree is not empty, compare the value of the new node with the value of the current node (starting from the root).
+4. If the value of the new node is less than the value of the current node, go to the left child. If the left child is null, set it to the new node. If it is not null, repeat step 3 with the left child as the current node.
+5. If the value of the new node is greater than the value of the current node, go to the right child. If the right child is null, set it to the new node. If it is not null, repeat step 3 with the right child as the current node.
+6. Repeat steps 3-5 until the new node is inserted into the tree.
+7. Return the root of the tree.
+
+Edge cases:
+
+- If the tree is empty, we need to set the root to the new node.
+- If the value of the new node is equal to the value of the current node, we do not insert it again. We can choose to ignore it or throw an error, depending on our requirements. However, if in the interview they ask you how to handle duplicates, you can add a `count` property to the node and increment it each time you encounter a duplicate. This way, you can keep track of how many times the value has been inserted into the tree.
+
+Pseudocode:
+
+```plaintext
+create a new node with the given value
+
+if the tree is empty (if root === null then root = new node)
+    set the root to the new node
+
+create a variable current or temp and set it to the root
+
+while loop (current !== null)
+    if the value of the new node === current.value or temp.value
+        return undefined
+
+    if the value of the new node < current.value or temp.value
+        if current.left === null or temp.left === null
+            set the left child to the new node
+
+    else if the value of the new node > current.value or temp.value
+        if current.right === null or temp.right === null
+            set the right child to the new node
+
+    else
+        set current to the left child or right child depending on the value of the new node
+```
