@@ -33,3 +33,48 @@ A collision occurs when two different keys hash to the same index in a hash tabl
 
 We will be implementing the separate chaining method to handle collisions in our hash table.
 This method is simple and effective, and it allows us to store multiple key-value pairs at the same index in the hash table.
+
+## Hash Tables: Constructor
+
+You get a more randomized distribution of keys in the hash table by using a prime number as the size of the hash table. This is because prime numbers are less likely to have common factors with the keys, which helps to reduce collisions.
+
+So, we will use a the prime number 7 as the size of our hash table. This will help to ensure that our hash table is efficient and has a good distribution of keys.
+
+```js
+class HashTable {
+  // constructor accepts a size parameter that defaults to 7
+  // this is the size of the hash table
+  constructor(size = 7) {
+    // create an array of the specified size
+    this.dataMap = new Array(size).fill(null) // initialize the array with null values
+  }
+
+  // _hash method takes a key as a parameter and returns the index in the hash table where the key-value pair should be stored
+  _hash(key) {
+    // initialize a variable to store the hash value
+    let hash = 0
+
+    // loop through each character in the key and calculate the hash value
+    for (let i = 0; i < key.length; i++) {
+      // use the charCodeAt method to get the ASCII value of the character
+      // multiply it by 23 (a prime number) and add it to the hash value
+      // use the modulo operator to ensure that the hash value is within the bounds of the array size
+      hash = (hash + key.charCodeAt(i) * 23) % this.dataMap.length
+    }
+
+    // return the hash value
+    // this is the index in the hash table where the key-value pair should be stored
+    return hash
+  }
+}
+```
+
+Explanation:
+
+- The constructor accepts a size parameter that defaults to 7. This is the size of the hash table.
+- The constructor creates an array of the specified size and initializes it with null values. This is where the key-value pairs will be stored.
+- The `_hash` method takes a key as a parameter and returns the index in the hash table where the key-value pair should be stored. It does this by looping through each character in the key, calculating the hash value using the `charCodeAt` method, and using the modulo operator to ensure that the hash value is within the bounds of the array size.
+- The hash value is calculated by multiplying the ASCII value of each character by 23 (a prime number) and adding it to the hash value. This helps to ensure that the hash value is distributed evenly across the array.
+- The `_hash` method returns the hash value, which is the index in the hash table where the key-value pair should be stored.
+- The hash table is implemented as a class, which allows us to create multiple instances of the hash table with different sizes if needed.
+- The hash table is initialized with a size of 7, which is a prime number. This helps to ensure that the hash table is efficient and has a good distribution of keys.
