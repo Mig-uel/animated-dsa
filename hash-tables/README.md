@@ -18,3 +18,18 @@ What can happen in hash tables is that collisions may occur, where two different
 We don't want to overwrite the value already associated with a key. What we want to do is to store both values in the same index.
 
 There are multiple ways to handle collisions, and we will discuss it in the next section.
+
+## Hash Tables: Collisions
+
+A collision occurs when two different keys hash to the same index in a hash table. There are several ways to handle collisions, but here are the most common ways:
+
+- **Chaining**: In this method, each index in the hash table contains a linked list of all the keys that hash to that index. When a collision occurs, the new key-value pair is simply added to the linked list at that index. This method is simple and effective, but it can lead to long linked lists if there are many collisions.
+- **Open Addressing**: In this method, when a collision occurs, the hash table looks for the next available index in the array to store the new key-value pair. This method can be more efficient than chaining, but it can lead to clustering, where many keys are stored in a small number of indices.
+- **Double Hashing**: This is a more advanced method of open addressing that uses a second hash function to find the next available index. This can help to reduce clustering and improve performance.
+- **Cuckoo Hashing**: This method uses two hash functions and two hash tables. When a collision occurs, the existing key is moved to its alternate location in the second hash table. This can lead to more complex implementations but can also improve performance.
+- **Robin Hood Hashing**: This method uses a combination of open addressing and chaining. When a collision occurs, the new key-value pair is added to the linked list at that index, but the existing key is moved to the next available index. This can help to reduce clustering and improve performance.
+- **Separate Chaining**: This method uses a combination of chaining and open addressing. When a collision occurs, the new key-value pair is added to the linked list at that index, but the existing key is moved to the next available index. This can help to reduce clustering and improve performance.
+- **Linear Probing**: This method uses a linear search to find the next available index in the array. This can help to reduce clustering and improve performance, but it can also lead to long search times if there are many collisions.
+
+We will be implementing the separate chaining method to handle collisions in our hash table.
+This method is simple and effective, and it allows us to store multiple key-value pairs at the same index in the hash table.
