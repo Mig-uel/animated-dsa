@@ -194,3 +194,15 @@ Explanation:
 - It returns the array of keys, allowing us to retrieve all the keys in the hash table.
 - The `keys` method is useful for retrieving all the keys in the hash table, which can be helpful for debugging or iterating through the keys.
 - It allows us to see all the keys in the hash table without having to loop through each linked list manually.
+
+## Hash Tables: Big-O Notation
+
+The time complexity of the hash table operations is as follows:
+
+`_hash`: O(1) - The hash function takes a key and returns an index in the hash table. This operation is constant time because it does not depend on the size of the hash table.
+
+`set`: O(1) - The set method adds a key-value pair to the hash table. This operation is constant time because it does not depend on the size of the hash table.
+
+`get`: O(1) - The get method retrieves a value associated with a key in the hash table. This operation is constant time on average, assuming a good hash function and a low number of collisions.
+
+`keys`: O(n) - The keys method retrieves all the keys in the hash table. This operation is linear time because it depends on the number of keys in the hash table.
