@@ -206,3 +206,50 @@ The time complexity of the hash table operations is as follows:
 `get`: O(1) - The get method retrieves a value associated with a key in the hash table. This operation is constant time on average, assuming a good hash function and a low number of collisions.
 
 `keys`: O(n) - The keys method retrieves all the keys in the hash table. This operation is linear time because it depends on the number of keys in the hash table.
+
+## Hash Tables: Interview Questions
+
+Question 1: Write a function that returns true or false if two arrays have any items in common.
+
+```js
+// haveInCommon function takes two arrays as parameters
+function haveInCommon(arr1, arr2) {
+  // loop through the first array
+  for (let i = 0; i < arr1.length; i++) {
+    // loop through the second array
+    for (let j = 0; j < arr2.length; j++) {
+      // check if the item at index i in arr1 is equal to the item at index j in arr2
+      if (arr1[i] === arr2[j]) return true // if it is, return true
+    }
+  }
+
+  // if no items are found in common, return false
+  // this means that the two arrays do not have any items in common
+  return false
+}
+```
+
+This solution has a time complexity of O(n^2) because it uses two nested loops to check for common items in the two arrays. This means that the time it takes to run the function increases exponentially with the size of the input arrays.
+
+The solution can be optimized using an object to reduce the time complexity to O(n).
+
+```js
+function haveInCommon(arr1, arr2) {
+  const obj = {}
+
+  // loop through the first array and store each item in an object
+  for (let i = 0; i < arr1.length; i++) {
+    obj[arr1[i]] = true // store the item as a key in the object
+  }
+
+  // loop through the second array and check if each item exists in the object
+  for (let j = 0; j < arr2.length; j++) {
+    if (obj[arr2[j]]) return true // if it exists, return true
+  }
+
+  // if no items are found in common, return false
+  return false
+}
+```
+
+This solution has a time complexity of O(n) because it uses a single loop to store the items in the first array in an object, and then another loop to check if each item in the second array exists in the object. This means that the time it takes to run the function increases linearly with the size of the input arrays.
