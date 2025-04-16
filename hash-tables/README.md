@@ -114,3 +114,44 @@ Explanation:
 - It checks if there is no data at that index. If there is no data, it creates an empty array at that index.
 - It pushes the key-value pair into the array at that index. This allows us to store multiple key-value pairs at the same index in the hash table.
 - It returns the hash table instance, allowing for method chaining.
+
+## Hash Tables: Get Method
+
+The `get` method is used to retrieve the value associated with a given key in the hash table. It takes one parameter: the key. The method first calculates the index in the hash table where the key-value pair should be stored using the `_hash` method. It then checks if there is a linked list at that index. If there is, it loops through the linked list to find the key and returns the associated value. If the key is not found, it returns `undefined`.
+
+Let's say we want to `get` an item with key of `bolts`.
+The `get` method should produce a hash/index and an array with the key and value pair. It would then return the value at the hash/index it produced if it exists. If it doesn't exist, it would return `undefined`.
+
+```js
+// get method takes a key as a parameter
+get(key) {
+  // calculate the index in the hash table where the key-value pair should be stored
+  // using the _hash method
+  let index = this._hash(key)
+
+  // save the data at that index in a variable
+  const data = this.dataMap[index]
+
+  // save the data at that index in a variable
+  // check if there is no data at that index
+  if (!data) return undefined // if there is no data, return undefined
+
+  // loop through the linked list at that index
+  for (let i = 0; i < data.length; i++) {
+    // check if the key at that index matches the key we are looking for
+    // if it does, return the value at that index
+    if (data[i][0] === key) return data[i][1]
+  }
+
+  // if the key is not found, return undefined
+  // this means that the key does not exist in the hash table
+  return undefined
+}
+```
+
+Explanation:
+
+- The `get` method takes a key as a parameter.
+- It calculates the index in the hash table where the key-value pair should be stored using the `_hash` method.
+- It checks if there is a linked list at that index. If there is, it loops through the linked list to find the key and returns the associated value. If the key is not found, it returns `undefined`.
+- It returns the value associated with the key if it exists, or `undefined` if it does not.
