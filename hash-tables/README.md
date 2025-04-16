@@ -253,3 +253,25 @@ function haveInCommon(arr1, arr2) {
 ```
 
 This solution has a time complexity of O(n) because it uses a single loop to store the items in the first array in an object, and then another loop to check if each item in the second array exists in the object. This means that the time it takes to run the function increases linearly with the size of the input arrays.
+
+Question 2: Find Duplicates
+
+```js
+// findDuplicates function takes an array as a parameter
+function findDuplicates(arr) {
+  const obj = {}
+  const duplicates = []
+
+  // loop through the array and store each item in an object
+  for (let i = 0; i < arr.length; i++) {
+    if (obj[arr[i]]) {
+      duplicates.push(arr[i]) // if the item already exists, push it to duplicates
+    } else {
+      obj[arr[i]] = true // store the item as a key in the object
+    }
+  }
+
+  // return the array of duplicates
+  return duplicates
+}
+```
