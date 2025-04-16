@@ -155,3 +155,42 @@ Explanation:
 - It calculates the index in the hash table where the key-value pair should be stored using the `_hash` method.
 - It checks if there is a linked list at that index. If there is, it loops through the linked list to find the key and returns the associated value. If the key is not found, it returns `undefined`.
 - It returns the value associated with the key if it exists, or `undefined` if it does not.
+
+## Hash Tables: Keys Method
+
+The `keys` method is used to retrieve all the keys in the hash table. It loops through the hash table and collects all the keys from each linked list into an array. It then returns the array of keys.
+
+```js
+// keys method returns an array of all the keys in the hash table
+keys() {
+  // create an empty array to store the keys
+  let allKeys = []
+
+  // loop through the hash table
+  for (let i = 0; i < this.dataMap.length; i++) {
+    // check if there is data at that index
+    // if there is, loop through the linked list at that index
+    if (this.dataMap[i]) {
+      // loop through the linked list at that index
+      // and push the keys into the allKeys array
+      // this allows us to collect all the keys in the hash table
+      for (let j = 0; j < this.dataMap[i].length; j++) {
+        allKeys.push(this.dataMap[i][j][0])
+      }
+    }
+  }
+
+  // return the array of keys
+  // this allows us to retrieve all the keys in the hash table
+  return allKeys
+}
+```
+
+Explanation:
+
+- The `keys` method returns an array of all the keys in the hash table.
+- It creates an empty array to store the keys.
+- It loops through the hash table and checks if there is data at each index. If there is, it loops through the linked list at that index and pushes the keys into the `allKeys` array.
+- It returns the array of keys, allowing us to retrieve all the keys in the hash table.
+- The `keys` method is useful for retrieving all the keys in the hash table, which can be helpful for debugging or iterating through the keys.
+- It allows us to see all the keys in the hash table without having to loop through each linked list manually.
