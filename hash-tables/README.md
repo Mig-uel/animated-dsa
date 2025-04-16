@@ -275,3 +275,28 @@ function findDuplicates(arr) {
   return duplicates
 }
 ```
+
+Question 3: Find the first non-repeating character in a string.
+
+```js
+firstNonRepeatingCharacter(str) {
+  const obj = {}
+
+  // loop through the string and store each character in an object
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]]) {
+      obj[str[i]]++ // if the character already exists, increment its count
+    } else {
+      obj[str[i]] = 1 // store the character as a key in the object
+    }
+  }
+
+  // loop through the string again and return the first non-repeating character
+  for (let j = 0; j < str.length; j++) {
+    if (obj[str[j]] === 1) return str[j] // if the count is 1, return the character
+  }
+
+  // if no non-repeating character is found, return null
+  return null
+}
+```
