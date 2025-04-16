@@ -78,3 +78,39 @@ Explanation:
 - The `_hash` method returns the hash value, which is the index in the hash table where the key-value pair should be stored.
 - The hash table is implemented as a class, which allows us to create multiple instances of the hash table with different sizes if needed.
 - The hash table is initialized with a size of 7, which is a prime number. This helps to ensure that the hash table is efficient and has a good distribution of keys.
+
+## Hash Tables: Set Method
+
+The `set` method is used to add a key-value pair to the hash table. It takes two parameters: the key and the value. The method first calculates the index in the hash table where the key-value pair should be stored using the `_hash` method. If there is no linked list at that index, it creates one and adds the key-value pair to it. If there is already a linked list at that index, it checks if the key already exists in the list. If it does, it updates the value. If it doesn't, it adds the new key-value pair to the end of the list.
+
+Let's say we want to `set` an item with key of `bolts` and value of `1400`.
+The `set` method should produce a hash/index and an array with the key and value pair. It would then set it at the hash/index it produced.
+
+```js
+// set method takes a key and a value as parameters
+set(key, value) {
+  // calculate the index in the hash table where the key-value pair should be stored
+  const index = this._hash(key)
+
+  // check if there is no data at that index
+  if (!this.dataMap[index]) {
+    // if there is no data, create an empty array at that index
+    this.dataMap[index] = []
+  }
+
+  // push the key-value pair into the array at that index
+  // this allows us to store multiple key-value pairs at the same index in the hash table
+  this.dataMap[index].push([key, value])
+
+  // return the hash table instance
+  return this
+}
+```
+
+Explanation:
+
+- The `set` method takes a key and a value as parameters.
+- It calculates the index in the hash table where the key-value pair should be stored using the `_hash` method.
+- It checks if there is no data at that index. If there is no data, it creates an empty array at that index.
+- It pushes the key-value pair into the array at that index. This allows us to store multiple key-value pairs at the same index in the hash table.
+- It returns the hash table instance, allowing for method chaining.
