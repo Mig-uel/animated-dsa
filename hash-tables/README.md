@@ -300,3 +300,29 @@ firstNonRepeatingCharacter(str) {
   return null
 }
 ```
+
+Question 4: Two Sum
+
+```js
+function twoSum(nums, target) {
+  const map = new Map() // create a new map to store the indices of the numbers
+
+  // loop through the array and store each number in a map
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i] // calculate the complement
+
+    // check if the complement exists in the map
+    if (map.has(complement)) {
+      return [map.get(complement), i] // if it does, return the indices of the two numbers
+    }
+
+    // store the number as a key in the map
+    map.set(nums[i], i) // use map.set to store the number and its index
+  }
+
+  // if no two numbers add up to the target, return null
+  return null
+}
+```
+
+This solution has a time complexity of O(n) because it uses a single loop to store the numbers in the map and check for complements. This means that the time it takes to run the function increases linearly with the size of the input array.
