@@ -326,3 +326,30 @@ function twoSum(nums, target) {
 ```
 
 This solution has a time complexity of O(n) because it uses a single loop to store the numbers in the map and check for complements. This means that the time it takes to run the function increases linearly with the size of the input array.
+
+Question 5: Group Anagrams
+
+```js
+function groupAnagrams(strs) {
+  const map = new Map() // create a new map to store the anagrams
+
+  // loop through the array of strings
+  for (let i = 0; i < strs.length; i++) {
+    // sort the string and use it as a key in the map
+    const sortedStr = strs[i].split('').sort().join('')
+
+    // check if the sorted string exists in the map
+    if (!map.has(sortedStr)) {
+      map.set(sortedStr, []) // if it doesn't, create an empty array for it
+    }
+
+    // push the original string into the array for that key
+    map.get(sortedStr).push(strs[i])
+  }
+
+  // return the values of the map as an array of arrays
+  return Array.from(map.values())
+}
+```
+
+This solution has a time complexity of O(n \* k log k) where n is the number of strings and k is the maximum length of a string. This is because we sort each string, which takes O(k log k) time, and we do this for n strings.
