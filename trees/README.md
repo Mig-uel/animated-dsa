@@ -405,3 +405,5 @@ Explanation:
 - We check if the value is greater than the value of the current node. If it is, we go to the right child by setting `current` to the right child.
 - If the value is equal to the value of the current node, we return true.
 - If we reach here, it means we did not find the value in the tree, so we return false.
+
+TEST
