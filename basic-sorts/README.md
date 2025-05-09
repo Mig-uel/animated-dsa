@@ -137,3 +137,9 @@ Explanation:
 - After finding the minimum element in the unsorted portion, we swap it with the current element.
 - The process continues until the entire array is sorted.
 - The time complexity of selection sort is O(n^2) in the worst and average cases, making it inefficient for large datasets. However, it is simple to understand and implement.
+
+## Basic Sorts: Insertion Sort - Intro
+
+Insertion sort is a simple sorting algorithm that builds a sorted array (or list) one element at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
+
+Insertion sort always starts with the second element in the array. It compares it with the first element and inserts it into the correct position in the sorted part of the array. It then moves to the next element and repeats the process until the entire array is sorted.
