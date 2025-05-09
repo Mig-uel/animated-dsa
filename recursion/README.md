@@ -1,5 +1,7 @@
 # Recursion
 
+## Recursion: Intro
+
 Recursion is a function that calls itself until it doesn't.
 
 Example:
@@ -22,3 +24,13 @@ Sooner or later the function will reach its base case and stop recursively calli
 
 You always have to have some conditional that at some point is going to be true and causes the function to stop calling itself.
 You also have to have a return statement.
+
+## Call Stack
+
+Call stacks is an important subject to understand if you want to wrap your head around recursion.
+
+In a FIFO stack, the first element added to the stack is the first one to be removed.
+
+The call stack is a data structure that keeps track of function calls. It is a stack data structure, which means that the last function called is the first one to be removed from the stack. This is known as LIFO (Last In, First Out).
+
+When a function is called, it is added to the top of the stack. When the function returns, it is removed from the top of the stack. This is how the call stack keeps track of which function is currently executing and what its context is.
