@@ -98,3 +98,42 @@ We continue this process until the entire array is sorted. The final sorted arra
 ```plaintext
 [1, 2, 3, 4, 5, 6]
 ```
+
+## Basic Sorts: Selection Sort - Code
+
+```javascript
+function selection_sort(nums) {
+  let min // var to hold min index
+
+  // loop through entire array
+  for (let i = 0; i < nums.length - 1; i++) {
+    min = i // set min to current index
+
+    // loop starts at i + 1 because at i, element should be sorted already
+    for (let j = i + 1; j < nums.length; j++) {
+      // compare element at j to element before it
+      if (nums[j] < nums[min]) {
+        min = j
+      }
+    }
+
+    // if the lowest isn't itself
+    if (i !== min) {
+      let temp = nums[i]
+      nums[i] = nums[min]
+      nums[min] = temp
+    }
+  }
+
+  return nums
+}
+```
+
+Explanation:
+
+- The outer loop iterates through the entire array, treating each element as the current minimum.
+- The inner loop iterates through the unsorted portion of the array, comparing each element to the current minimum.
+- If a smaller element is found, we update `min` to its index.
+- After finding the minimum element in the unsorted portion, we swap it with the current element.
+- The process continues until the entire array is sorted.
+- The time complexity of selection sort is O(n^2) in the worst and average cases, making it inefficient for large datasets. However, it is simple to understand and implement.
