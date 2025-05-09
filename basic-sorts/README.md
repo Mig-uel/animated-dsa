@@ -66,3 +66,35 @@ Explanation:
 - The inner loop iterates through the unsorted portion of the array, comparing adjacent elements and swapping them if they are in the wrong order.
 - The process continues until the entire array is sorted.
 - The time complexity of bubble sort is O(n^2) in the worst and average cases, making it inefficient for large datasets. However, it is simple to understand and implement.
+
+## Basic Sorts: Selection Sort - Intro
+
+Selection sort is a simple sorting algorithm that divides the input list into two parts: a sorted part and an unsorted part. The algorithm repeatedly selects the smallest (or largest, depending on the order) element from the unsorted part and moves it to the end of the sorted part.
+
+Let's say we have an array of integers:
+
+```plaintext
+[4, 2, 6, 5, 1, 3]
+```
+
+For selection sort, we have to keep track of the indexes.
+
+We start by assuming the first element (4) is the smallest. We will assign the index of it to a variable called `minIndex`. We then compare it with the rest of the elements in the array. If we find an element smaller than 4, we update `minIndex` to that element's index.
+
+After we have gone through the entire array, we swap the element at `minIndex` with the first element (4). In this case, we find that 1 is smaller than 4, so we swap them:
+
+```plaintext
+[1, 2, 6, 5, 4, 3]
+```
+
+Next, we repeat the process for the rest of the array. We assume the second element (2) is the smallest and compare it with the rest of the elements. Since 2 is already the smallest, we don't need to swap anything:
+
+```plaintext
+[1, 2, 6, 5, 4, 3]
+```
+
+We continue this process until the entire array is sorted. The final sorted array will be:
+
+```plaintext
+[1, 2, 3, 4, 5, 6]
+```
