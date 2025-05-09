@@ -41,3 +41,28 @@ Finally, we compare the fifth item (6) with the sixth item (3). Since 6 is great
 ```
 
 At this point, we have completed one pass through the list. The largest element (6) has "bubbled" to the end of the list. We repeat this process for the rest of the elements until the entire list is sorted.
+
+## Basic Sorts: Bubble Sort - Code
+
+```javascript
+function bubble_sort(nums) {
+  for (let i = nums.length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
+      if (nums[j] > nums[j + 1]) {
+        let temp = nums[j]
+        nums[j] = nums[j + 1]
+        nums[j + 1] = temp
+      }
+    }
+  }
+
+  return nums
+}
+```
+
+Explanation:
+
+- The outer loop iterates from the end of the array to the beginning, ensuring that the largest unsorted element is moved to its correct position in each pass.
+- The inner loop iterates through the unsorted portion of the array, comparing adjacent elements and swapping them if they are in the wrong order.
+- The process continues until the entire array is sorted.
+- The time complexity of bubble sort is O(n^2) in the worst and average cases, making it inefficient for large datasets. However, it is simple to understand and implement.
