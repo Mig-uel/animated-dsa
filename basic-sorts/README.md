@@ -143,3 +143,37 @@ Explanation:
 Insertion sort is a simple sorting algorithm that builds a sorted array (or list) one element at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
 
 Insertion sort always starts with the second element in the array. It compares it with the first element and inserts it into the correct position in the sorted part of the array. It then moves to the next element and repeats the process until the entire array is sorted.
+
+## Basic Sorts: Insertion Sort - Code
+
+Let's say we have an array of integers:
+
+```plaintext
+[1, 2, 4, 5, 5, 6]
+```
+
+```javascript
+function insertion_sort(nums) {
+  let temp
+
+  for (let i = 1; i < nums.length; i++) {
+    temp = nums[i]
+
+    // j points to the item before i
+    for (var j = i - 1; nums[j] > temp && j > -1; j--) {
+      nums[j + 1] = nums[j]
+    }
+
+    nums[j + 1] = temp
+  }
+
+  return nums
+}
+```
+
+Explanation:
+
+- The outer loop iterates through the array starting from the second element.
+- The inner loop compares the current element with the elements before it and inserts it into the correct position.
+- The process continues until the entire array is sorted.
+- The time complexity of insertion sort is O(n^2) in the worst and average cases, making it inefficient for large datasets. However, it is efficient for small datasets and is often used as a subroutine in more complex algorithms.
