@@ -25,3 +25,52 @@ The `merge` function will take two sorted arrays and merge them into one sorted 
 We will also need to handle the case where one of the arrays is empty. In that case, we will simply add the remaining elements from the other array to the `merged` array.
 
 We will use two pointers to keep track of the current index of each array. We will also need to create a new array to store the merged result.
+
+## Merge Sort: Merge Code
+
+Our two sorted arrays:
+
+```plaintext
+[1, 3, 7, 8] and [2, 4, 5, 6]
+```
+
+```js
+function merge(array1, array2) {
+  let combined = []
+
+  let i = 0 // array1 pointer
+  let j = 0 // array2 pointer
+
+  while (i < array1.length && j < array2.length) {
+    if (array1[i] < array2[j]) {
+      combined.push(array[i])
+      i++
+    } else {
+      combined.push(array[j])
+      j++
+    }
+  }
+
+  while (i < array1.length) {
+    combined.push(array1[i])
+    i++
+  }
+
+  while (j < array2.length) {
+    combined.push(array2[j])
+    j++
+  }
+}
+```
+
+Explanation:
+
+- We create a new array called `combined` to store the merged result.
+- We use two pointers `i` and `j` to keep track of the current index of each array.
+- We use a while loop to compare the elements of both arrays and add the smaller one to the `combined` array.
+- We continue this process until we have merged all the elements from both arrays.
+- We use two additional while loops to handle the case where one of the arrays is empty. In that case, we simply add the remaining elements from the other array to the `combined` array.
+- Finally, we return the `combined` array.
+- The time complexity of the merge function is O(n), where n is the total number of elements in both arrays.
+- The space complexity is also O(n), as we are creating a new array to store the merged result.
+- The merge function is stable, as it preserves the relative order of equal elements in the sorted output.
