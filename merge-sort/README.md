@@ -74,3 +74,13 @@ Explanation:
 - The time complexity of the merge function is O(n), where n is the total number of elements in both arrays.
 - The space complexity is also O(n), as we are creating a new array to store the merged result.
 - The merge function is stable, as it preserves the relative order of equal elements in the sorted output.
+
+## Merge Sort: Merge Sort - Intro
+
+The big thing merge sort is going to do is take a list and cut it in half, again and again until we have a single item array. By definition, a single item array is sorted.
+
+Merge sort is going to recursively call itself on the left and right side of the array. Once we have our two sorted arrays, we will merge them back together in a sorted manner.
+
+1. It has to do the same thing over and over again which is breaking the array in half.
+2. There has to be a base case. The base case is when the array is of length 1. If the array is of length 1, we can return it as it is already sorted.
+3. Once we have gotten to the base case, we use the merge function to merge the two sorted arrays back together.
