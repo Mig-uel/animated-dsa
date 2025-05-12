@@ -84,3 +84,39 @@ Merge sort is going to recursively call itself on the left and right side of the
 1. It has to do the same thing over and over again which is breaking the array in half.
 2. There has to be a base case. The base case is when the array is of length 1. If the array is of length 1, we can return it as it is already sorted.
 3. Once we have gotten to the base case, we use the merge function to merge the two sorted arrays back together.
+
+## Merge Sort: Merge Sort - Code
+
+Array to sort:
+
+```plaintext
+[3, 1, 4, 2]
+```
+
+```js
+function merge_sort(array) {
+  if (array.length === 1) return array
+
+  const midIndex = Math.floor(array.length / 2)
+
+  // we have two arrays split in half but this won't work
+  // because we need a sorted array
+  // let left = array.slice(0, midIndex)
+  // let right = array.slice(midIndex)
+
+  const left = merge_sort(array.slice(0, midIndex))
+  const right = merge_sort(array.slice(midIndex))
+
+  return merge(left, right)
+}
+```
+
+Explanation:
+
+- We check if the array length is 1. If it is, we return the array as it is already sorted.
+- We calculate the mid index of the array.
+- We split the array into two halves using the `slice` method.
+- We recursively call the `merge_sort` function on the left and right halves of the array.
+- We merge the two sorted arrays using the `merge` function and return the result.
+- The time complexity of the merge sort algorithm is O(n log n), where n is the number of elements in the array.
+- The space complexity is O(n), as we are creating new arrays for the left and right halves of the array.
