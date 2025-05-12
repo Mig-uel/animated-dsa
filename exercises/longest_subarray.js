@@ -17,15 +17,14 @@ function longest_subarray(arr, k) {
   for (let right = 0; right < arr.length; right++) {
     // expand window
     sum += arr[right]
-    // maxLength++
 
     while (sum > k) {
       // shrink window
       sum -= arr[left]
-      // maxLength--
       left++
     }
 
+    // checking for every valid window if it greater than current max
     maxLength = Math.max(maxLength, right - left + 1)
   }
 
