@@ -27,4 +27,15 @@ function merge(array1, array2) {
   return merged
 }
 
-console.log(merge([1, 3, 5], [2, 5, 6, 8]))
+function merge_sort(array) {
+  if (array.length === 1) return array
+
+  const mid = Math.floor(array.length / 2)
+
+  const left = merge_sort(array.slice(0, mid))
+  const right = merge_sort(array.slice(mid))
+
+  return merge(left, right)
+}
+
+console.log(merge_sort([3, 1, 4, 2]))
